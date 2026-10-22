@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Faders – Radio that doesn’t suck</title>
+  <meta name="description" content="Live radio from every corner of the world, with every song named, lyrics in sync, ad-free moods and a player made for iPhone, iPad, iPhone Duo and Apple Watch.">
+  <meta name="theme-color" content="#07050c">
+  <meta property="og:title" content="Faders – Radio that doesn’t suck">
+  <meta property="og:description" content="Every song, named. Lyrics in sync. Ad-free moods. Made for iPhone Duo.">
+  <meta property="og:image" content="assets/og.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient" aria-hidden="true">
+    <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+  </div>
+
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Faders home">
+        <img src="assets/icon.png" alt="" width="28" height="28"><span>Faders</span>
+      </a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#song">Features</a>
+        <a href="#moods">Moods</a>
+        <a href="#duo">iPhone Duo</a>
+        <a href="#plus">Plus</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <a class="pill cta-store" href="#get">Get Faders</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-copy reveal">
+        <img class="hero-icon" src="assets/icon.png" alt="Faders app icon" width="96" height="96">
+        <h1>Radio that<br><span class="grad">doesn’t suck.</span></h1>
+        <p class="lede">Tens of thousands of live stations. Every song named. Lyrics in sync. No account, no tracking, nothing in the way.</p>
+        <div class="hero-actions">
+          <a class="pill pill-light cta-store" href="#get">Get Faders, free</a>
+          <a class="link-arrow" href="#film">Watch the film</a>
+        </div>
+        <p class="fine availability"></p>
+      </div>
+      <div class="hero-stage">
+        <figure class="phone phone-hero float">
+          <img src="assets/iphone-player.webp" alt="The Faders player showing the song playing on RTÉ 2FM" width="720" height="1565" fetchpriority="high">
+        </figure>
+        <div class="now-card glass reveal" aria-hidden="true">
+          <span class="eq"><i></i><i></i><i></i><i></i></span>
+          <div><b>Identified</b><small>Song, artist and artwork, live</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee of stations -->
+    <section class="marquee" aria-label="Stations you can tune to">
+      <div class="marquee-track">
+        <span>SPIN 1038</span><span>BBC Radio 1</span><span>Today FM</span><span>KEXP</span><span>RTÉ 2FM</span><span>Radio Paradise</span><span>NTS</span><span>SomaFM</span><span>Radio Nova</span><span>FM104</span><span>98FM</span><span>Classic Hits</span>
+        <span>SPIN 1038</span><span>BBC Radio 1</span><span>Today FM</span><span>KEXP</span><span>RTÉ 2FM</span><span>Radio Paradise</span><span>NTS</span><span>SomaFM</span><span>Radio Nova</span><span>FM104</span><span>98FM</span><span>Classic Hits</span>
+      </div>
+    </section>
+
+    <!-- Film -->
+    <section class="film" id="film">
+      <div class="section-head reveal">
+        <p class="eyebrow">The film</p>
+        <h2>Thirty seconds of radio,<br>the way it should feel.</h2>
+      </div>
+      <div class="film-frame reveal">
+        <video src="assets/promo.mp4" poster="assets/promo-poster.webp" muted loop playsinline preload="metadata" aria-label="Faders promotional film"></video>
+        <button class="film-play" type="button" aria-label="Play film">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- Every song, named: sticky story -->
+    <section class="story" id="song">
+      <div class="story-sticky">
+        <figure class="phone phone-story">
+          <img class="story-shot is-active" data-step="0" src="assets/iphone-player.webp" alt="Player with the song named" loading="lazy">
+          <img class="story-shot" data-step="1" src="assets/iphone-lyrics.webp" alt="Synced lyrics" loading="lazy">
+          <img class="story-shot" data-step="2" src="assets/iphone-search.webp" alt="Search and genres" loading="lazy">
+          <img class="story-shot" data-step="3" src="assets/iphone-library.webp" alt="Your stations" loading="lazy">
+        </figure>
+      </div>
+      <div class="story-steps">
+        <article class="step" data-step="0">
+          <figure class="phone step-shot"><img src="assets/iphone-player.webp" alt="Player with the song named" loading="lazy"></figure>
+          <p class="eyebrow">Every song, named</p>
+          <h2>Know the song.<br>Before the DJ tells you.</h2>
+          <p>Faders reads what each station sends, and when a station stays quiet it listens for a few seconds and names the song itself. Title, artist and album art, on almost any station in the world.</p>
+        </article>
+        <article class="step" data-step="1">
+          <figure class="phone step-shot"><img src="assets/iphone-lyrics.webp" alt="Synced lyrics" loading="lazy"></figure>
+          <p class="eyebrow">Sing along</p>
+          <h2>Lyrics that keep time<br>with live radio.</h2>
+          <p>Synced lyrics follow the song as it plays on air, line by line. A gentle nudge fixes a station that runs a little early or late, and Faders remembers it.</p>
+          <div class="lyrics-demo" aria-hidden="true">
+            <p>Turn the dial, find the night</p>
+            <p>Every city has a light</p>
+            <p>Somewhere someone plays our song</p>
+            <p>Static fades and we sing along</p>
+            <p>Turn it up, the signal’s strong</p>
+          </div>
+        </article>
+        <article class="step" data-step="2">
+          <figure class="phone step-shot"><img src="assets/iphone-search.webp" alt="Search and genres" loading="lazy"></figure>
+          <p class="eyebrow">Every station on Earth</p>
+          <h2>Tens of thousands of stations.<br>One search.</h2>
+          <p>Search by name or frequency, browse genres in the languages you speak, or go country by country. Your local stations come first.</p>
+        </article>
+        <article class="step" data-step="3">
+          <figure class="phone step-shot"><img src="assets/iphone-library.webp" alt="Your stations" loading="lazy"></figure>
+          <p class="eyebrow">Your stations</p>
+          <h2>Favourites that know<br>what’s on now.</h2>
+          <p>See the song or show playing on every favourite before you tap. Synced through iCloud to iPad, Apple Watch and CarPlay.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Moods -->
+    <section class="moods" id="moods">
+      <div class="section-head reveal">
+        <p class="eyebrow">Ad-free moods</p>
+        <h2>Pick a feeling.<br>Faders keeps it going.</h2>
+        <p class="sub">Hand-picked, listener-supported stations with no ads, and if one ever drifts off-mood, Faders moves on by itself.</p>
+      </div>
+      <div class="mood-row" role="list">
+        <div class="mood m-focus reveal" role="listitem"><span class="mood-ico">◐</span><h3>Focus</h3><p>Lofi beats to study to</p></div>
+        <div class="mood m-chill reveal" role="listitem"><span class="mood-ico">❋</span><h3>Chill</h3><p>Downtempo, unhurried</p></div>
+        <div class="mood m-sleep reveal" role="listitem"><span class="mood-ico">☾</span><h3>Sleep</h3><p>Ambient to drift off to</p></div>
+        <div class="mood m-jazz reveal" role="listitem"><span class="mood-ico">♪</span><h3>Jazz Café</h3><p>Warm, late-night jazz</p></div>
+        <div class="mood m-energy reveal" role="listitem"><span class="mood-ico">⚡︎</span><h3>Energy</h3><p>Upbeat, no chatter</p></div>
+        <div class="mood m-retro reveal" role="listitem"><span class="mood-ico">◎</span><h3>Retro</h3><p>Eighties and beyond</p></div>
+      </div>
+      <div class="mood-feature">
+        <figure class="phone phone-small reveal">
+          <img src="assets/iphone-mood.webp" alt="A mood playing with rain sounds" loading="lazy">
+        </figure>
+        <div class="mood-copy reveal">
+          <h3>Add the weather.</h3>
+          <p>Lay rain, a crackling fire, vinyl or waves under any mood, synthesised right on your iPhone. Start a focus timer, or switch to Calm for a quiet bedside clock.</p>
+          <ul class="chips">
+            <li>Rain</li><li>Fire</li><li>Vinyl</li><li>Waves</li><li>Focus timer</li><li>Calm mode</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- iPhone Duo -->
+    <section class="duo" id="duo">
+      <div class="section-head reveal">
+        <p class="eyebrow">Made for iPhone Duo</p>
+        <h2>Closed, it’s a radio.<br>Open, it’s a stage.</h2>
+        <p class="sub">Faders keeps your place as you unfold: the player moves to one page, lyrics or your stations to the other. Nothing lands in the fold.</p>
+      </div>
+      <div class="duo-scroll">
+        <div class="duo-sticky">
+          <div class="duo-device" aria-label="iPhone Duo unfolding from the closed display to the open display" role="img">
+            <div class="duo-half duo-right"><img src="assets/duo-open-lyrics.webp" alt="" loading="lazy"></div>
+            <div class="duo-half duo-left">
+              <div class="duo-face duo-front"><img src="assets/duo-open-lyrics.webp" alt="" loading="lazy"></div>
+              <div class="duo-face duo-back"><img src="assets/duo-closed-lyrics.webp" alt="" loading="lazy"></div>
+            </div>
+          </div>
+          <p class="duo-caption"><span class="cap-closed">Closed: song, artwork and lyrics.</span><span class="cap-open">Open: lyrics beside the player.</span></p>
+        </div>
+      </div>
+      <div class="pose-grid">
+        <div class="pose reveal"><div class="pose-ico"><i class="p-closed"></i></div><h3>Closed</h3><p>The full player on the outer display, controls in easy reach.</p></div>
+        <div class="pose reveal"><div class="pose-ico"><i class="p-book"></i></div><h3>Book</h3><p>Player on one page, lyrics or stations on the other.</p></div>
+        <div class="pose reveal"><div class="pose-ico"><i class="p-laptop"></i></div><h3>Stand</h3><p>Artwork up top, controls on the base. A bedside radio clock.</p></div>
+        <div class="pose reveal"><div class="pose-ico"><i class="p-flat"></i></div><h3>Flat</h3><p>Your stations across the whole screen, the player a tap away.</p></div>
+      </div>
+    </section>
+
+    <!-- Everywhere -->
+    <section class="everywhere" id="everywhere">
+      <div class="section-head reveal">
+        <p class="eyebrow">Everywhere you listen</p>
+        <h2>One radio.<br>Every screen you own.</h2>
+      </div>
+      <div class="bento">
+        <div class="tile tile-ipad reveal">
+          <div class="tile-copy"><h3>iPad</h3><p>The player sits right beside your stations.</p></div>
+          <figure class="ipad"><img src="assets/ipad-listen.webp" alt="Faders on iPad with the player beside the stations" loading="lazy"></figure>
+        </div>
+        <div class="tile tile-watch reveal">
+          <figure class="watch"><img src="assets/watch-now.webp" alt="Faders on Apple Watch" loading="lazy"></figure>
+          <div class="tile-copy"><h3>Apple Watch</h3><p>Your favourites on your wrist.</p></div>
+        </div>
+        <div class="tile tile-car reveal">
+          <div class="car-ico" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="4" y="12" width="40" height="26" rx="6"/><circle cx="16" cy="25" r="5"/><path d="M26 21h12M26 27h9"/></svg></div>
+          <div class="tile-copy"><h3>CarPlay</h3><p>Stations and what’s on now, safely on the dash.</p></div>
+        </div>
+        <div class="tile tile-siri reveal">
+          <div class="tile-copy"><h3>Siri and Shortcuts</h3><p>“Play SPIN 1038 on Faders.”<br>“Play Focus on Faders.”</p></div>
+        </div>
+        <div class="tile tile-rewind reveal">
+          <div class="tile-copy"><h3>Rewind live radio</h3><p>Missed the start? Go back up to 30 minutes, or restart the song with one tap.</p></div>
+          <div class="scrub" aria-hidden="true"><span class="scrub-fill"></span><span class="scrub-knob"></span><b>LIVE</b></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy -->
+    <section class="privacy reveal" id="privacy">
+      <div class="privacy-card">
+        <div class="shield" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 4l16 6v12c0 10-7 18-16 22C15 40 8 32 8 22V10z"/><path d="M17 24l5 5 9-10"/></svg></div>
+        <p class="eyebrow">Private by design</p>
+        <h2>Data Not Collected.</h2>
+        <p class="sub">No account. No analytics. No tracking. Your stations and history stay on your device and in your own iCloud. That’s what the App Store privacy label says, and it’s true.</p>
+      </div>
+    </section>
+
+    <!-- Plus -->
+    <section class="plus" id="plus">
+      <div class="section-head reveal">
+        <p class="eyebrow">Pricing</p>
+        <h2>Radio is free.<br>Forever.</h2>
+        <p class="sub">Faders Plus is one payment, no subscription. It adds the extras and keeps Faders independent.</p>
+      </div>
+      <div class="price-grid">
+        <div class="price reveal">
+          <h3>Faders</h3>
+          <p class="amount">Free</p>
+          <ul>
+            <li>Every station, search and favourites</li>
+            <li>Song names, artwork and synced lyrics</li>
+            <li>All six ad-free Moods</li>
+            <li>CarPlay, Apple Watch, iPad, iPhone Duo</li>
+            <li>Sleep timer, AirPlay, Siri, widgets</li>
+          </ul>
+        </div>
+        <div class="price price-plus reveal">
+          <h3>Faders Plus</h3>
+          <p class="amount">€4.99 <small>one time</small></p>
+          <p class="launch">Launch price, going up to €9.99 on 1 December.</p>
+          <ul>
+            <li>Rewind live radio, restart any song</li>
+            <li>Wake to Radio alarms</li>
+            <li>Sounds, Focus timer and Calm mode</li>
+            <li>Save songs to Apple Music</li>
+            <li>Listening Insights</li>
+            <li>Shared with your family; future extras included</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final" id="get">
+      <img class="final-icon reveal" src="assets/icon.png" alt="" width="128" height="128">
+      <h2 class="reveal">Turn it on.</h2>
+      <p class="sub reveal">Faders for iPhone, iPad, iPhone Duo and Apple Watch.</p>
+      <a class="pill pill-light big cta-store reveal" href="#get">Get Faders, free</a>
+      <p class="fine availability reveal"></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="brand"><img src="assets/icon.png" alt="" width="22" height="22"><span>Faders</span></div>
+      <nav aria-label="Footer">
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="mailto:support@labnest.ie">support@labnest.ie</a>
+      </nav>
+      <p class="fine">© 2026 Mayank Gulaty. Station names and logos belong to their owners. Apple, iPhone, iPad, Apple Watch and CarPlay are trademarks of Apple Inc.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
