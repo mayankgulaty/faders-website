@@ -416,3 +416,12 @@ body.doc .nav { position: sticky; top: 0; left: 0; right: 0; border-radius: 0; b
 .guide-card b { font: 800 22px/1.15 var(--display); letter-spacing: -0.02em; }
 .guide-card small { font-size: 15px; opacity: 0.7; }
 .guide-list li { margin: 8px 0; }
+
+/* Homepage FAQ */
+.faq { display: grid; gap: 12px; margin-top: 36px; max-width: 900px; }
+.faq details { background: #fff; border-radius: 20px; padding: 18px 22px; box-shadow: 0 5px 0 rgba(0,0,0,0.08); }
+.faq summary { font: 800 clamp(19px, 2vw, 23px) var(--display); letter-spacing: -0.02em; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-size: 28px; line-height: 0.8; color: var(--pink); transition: transform 0.25s var(--ease); }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p { margin: 12px 0 0; font-size: 17px; max-width: 70ch; }

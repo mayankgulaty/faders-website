@@ -1,0 +1,21 @@
+# Faders
+
+> Faders is a free radio app for iPhone, iPad, CarPlay and Apple Watch. It plays tens of thousands of live radio stations from every country, names every song (even when the station doesn't send it), has six ad-free moods, and can change the channel to another of your stations during ad breaks. It never alters a station's stream. No account, no tracking; App Store privacy label "Data Not Collected". Made by Mayank Gulaty, an independent developer in Ireland.
+
+Key facts:
+- Price: free. Faders Plus is an optional one-time purchase (no subscription): pause and rewind live radio, Turntable/Cassette/Mixing Desk skins, Wake to Radio alarms, Sounds, Focus timer, Calm mode, stations from your own music, song saving, Last.fm and Insights. Shared with Family Sharing.
+- Ad breaks: settings are Stay, Change Station or Music Only, per station. Faders changes the channel like a listener would; it does not skip, mute or block ads.
+- Works with: CarPlay, Car Mode (cars without CarPlay), Apple Watch (plays with Bluetooth headphones), iPad, iPhone Duo, widgets, Control Center, Siri and Shortcuts, AirPlay, iCloud sync.
+- Your own music: Apple Music, Plex and Jellyfin, played like radio.
+- App Store: https://apps.apple.com/app/id6825091695
+- Contact: support@faders.app
+
+## Pages
+- [Home](https://faders.app/): the app, with a playable radio and Spin the globe
+- [Stations by country](https://faders.app/radio/): the most-listened stations in 93 countries
+- [Radio by genre](https://faders.app/genre/)
+- [Guides](https://faders.app/guides/): song names, CarPlay, Irish radio abroad, fewer ads, waking up to the radio, Apple Watch
+- [What's new](https://faders.app/updates): every version's release notes
+- [Press kit](https://faders.app/press): descriptions, facts, icon and screenshots
+- [Privacy](https://faders.app/privacy)
+- [Support](https://faders.app/support)

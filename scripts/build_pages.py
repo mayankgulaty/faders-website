@@ -324,7 +324,7 @@ page("/genre/", "Radio by genre – listen live online | Faders",
      body, None, [("Faders", "/"), ("Genres", None)], og="/assets/og/genres.png")
 
 # ---------- Sitemap ----------
-urls = ["/", "/updates", "/press", "/support", "/privacy", "/radio/", "/genre/", "/guides/"]
+urls = ["/", "/updates", "/press", "/support", "/privacy", "/radio/", "/genre/", "/guides/", "/llms.txt"]
 urls += sorted(f"/guides/{d}/" for d in os.listdir("guides") if os.path.isfile(f"guides/{d}/index.html")) if os.path.isdir("guides") else []
 urls += [f"/radio/{country_slug[c]}/" for c in by_country if by_country[c]]
 urls += [f"/genre/{genre_slug[t]}/" for t in by_genre if by_genre[t]]
