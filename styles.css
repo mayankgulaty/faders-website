@@ -434,3 +434,6 @@ body.doc .nav { position: sticky; top: 0; left: 0; right: 0; border-radius: 0; b
 .explore a { color: var(--cream); text-decoration-color: rgba(255,243,227,0.35); text-underline-offset: 4px; }
 .explore a:hover { color: var(--lime); }
 @media (max-width: 760px) { .explore { grid-template-columns: minmax(0, 1fr); } }
+.guide table.data { border-collapse: collapse; width: 100%; max-width: 640px; margin: 10px 0 18px; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 5px 0 rgba(0,0,0,0.06); }
+.guide table.data th, .guide table.data td { text-align: left; padding: 10px 14px; border-bottom: 1px solid rgba(23,11,46,0.08); font-size: 16px; }
+.guide table.data th { font: 700 14px var(--display); letter-spacing: 0.04em; text-transform: uppercase; background: var(--violet); color: var(--cream); }

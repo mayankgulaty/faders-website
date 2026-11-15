@@ -121,6 +121,62 @@ GUIDES = [
 <p>When your iPhone is with you, it’s usually better to play on the phone and control it from the Watch: better battery, and every Faders feature, like song names and changing station during breaks.</p>
 """,
   },
+  {
+    "slug": "christmas-radio-stations",
+    "title": "Christmas radio stations to stream online",
+    "desc": "The best Christmas radio stations to stream live in 2026, from Ireland’s Christmas FM to 24/7 carols and classics, and how to play them on iPhone and in CarPlay.",
+    "body": """
+<p>From late November, radio stations around the world switch to Christmas songs, and some exist only for the season. Here’s where to find them, and how to listen on your iPhone, in the car or on a smart speaker.</p>
+<h2>Christmas FM (Ireland)</h2>
+<p>An Irish favourite: a charity station that comes on air every year for the season, playing Christmas music non-stop. It streams worldwide, so it’s a taste of home for Irish people abroad. Find <a href="/station/christmas-fm-ireland/">Christmas FM Ireland</a> and its sister channels for classical carols.</p>
+<h2>24/7 Christmas stations</h2>
+<p>Dozens of internet stations play Christmas music all season, and some all year: classic crooners, modern pop, carols, country and kids’ songs. Browse <a href="/genre/christmas/">the most-listened Christmas stations</a>.</p>
+<h2>Your usual station</h2>
+<p>Many pop and adult-contemporary stations switch to all-Christmas playlists in December. Check your favourites: in Faders their cards show what’s playing before you tune in.</p>
+<h2>The easy way: a Christmas shelf in Faders</h2>
+<p>From <b>20 November to 6 January</b>, <a href="/">Faders</a> adds a <b>Christmas</b> shelf to the Listen tab, with stations from your own country first. There’s gentle snow at the top of the screen, and a festive app icon if you’d like one. No update needed: it turns up by itself.</p>
+<ul><li>Every song named, even on stations that don’t send it</li><li>In CarPlay for the drive home</li><li>On Apple Watch with Bluetooth headphones</li><li>A sleep timer for falling asleep to carols</li></ul>
+<h2>On a speaker</h2>
+<p>Use AirPlay to send any station from Faders to a HomePod, an AirPlay speaker or your TV, or connect any Bluetooth speaker.</p>
+""",
+  },
+  {
+    "slug": "internet-radio-data-usage",
+    "title": "How much data does internet radio use?",
+    "desc": "Internet radio uses about 30 to 150 MB an hour depending on the station’s quality. A table by bitrate, and how to keep mobile data use down on iPhone.",
+    "body": """
+<p>Streaming radio uses mobile data at a steady rate, set by the station’s <b>bitrate</b>: the higher the bitrate, the better it sounds and the more data it uses. Unlike video, it’s modest.</p>
+<h2>Data per hour by bitrate</h2>
+<table class="data"><thead><tr><th>Bitrate</th><th>Per hour</th><th>Typical stations</th></tr></thead><tbody>
+<tr><td>48 kbps (AAC+)</td><td>about 22 MB</td><td>talk and news, mobile streams</td></tr>
+<tr><td>64 kbps</td><td>about 29 MB</td><td>talk, many local stations</td></tr>
+<tr><td>128 kbps</td><td>about 58 MB</td><td>most music stations</td></tr>
+<tr><td>192 kbps</td><td>about 86 MB</td><td>higher-quality music</td></tr>
+<tr><td>320 kbps</td><td>about 144 MB</td><td>audiophile streams</td></tr>
+</tbody></table>
+<p>So an hour of a typical music station is about the same as five minutes of standard-definition video. A daily one-hour commute at 128 kbps uses about 1.2 GB a month.</p>
+<h2>How to use less</h2>
+<ul><li><b>Pick stations with a lower bitrate</b> for talk and news; speech sounds fine at 48 to 64 kbps. Faders shows each station’s bitrate in the player.</li><li><b>Use Wi-Fi at home and work.</b></li><li><b>Turn on Low Data Mode</b> (Settings › Mobile Data › Mobile Data Options) if your plan is tight. Faders saves its background song recognition for Wi-Fi.</li><li><b>Download your own music</b> for flights and tunnels: Faders plays albums from your Plex or Jellyfin server offline.</li></ul>
+<h2>Does recognising songs use data?</h2>
+<p>Very little. When a station doesn’t say what’s playing, Faders sends a short audio signature, not the audio, to name the song. On your favourites’ cards it only does this on Wi-Fi.</p>
+""",
+  },
+  {
+    "slug": "fm-radio-on-iphone",
+    "title": "FM radio on iPhone: what actually works",
+    "desc": "iPhones don’t have a working FM radio tuner. Here are the ways that do work to listen to your local FM stations on iPhone, and which is best.",
+    "body": """
+<p>Short answer: iPhones can’t pick up FM broadcasts. There’s no FM tuner that apps can use, and “FM radio” apps on the App Store are internet radio. The good news is that almost every FM station also streams online, with the same programmes at the same time.</p>
+<h2>1. An internet radio app</h2>
+<p>Search for your station by name or frequency in a radio app and it plays the station’s live stream, the same as on FM. In <a href="/">Faders</a> you can search by frequency (try “98.1”), see what’s on before you tune in, and browse your country’s stations (in CarPlay, <b>Near You</b> shows the local ones).</p>
+<h2>2. The station’s own app</h2>
+<p>Big broadcasters have their own apps. They work, but you end up with one app per station, each with its own adverts and sign-in.</p>
+<h2>3. A smart speaker or car radio</h2>
+<p>Your car’s FM and DAB radio still work, of course. To get your phone’s stations in the car, use CarPlay or Bluetooth.</p>
+<h2>FM or internet: what’s the difference?</h2>
+<ul><li><b>Coverage:</b> FM fades outside the station’s area; the stream works anywhere with data.</li><li><b>Sound:</b> most streams are 128 kbps, close to FM quality, and without static.</li><li><b>Delay:</b> streams run 10 to 30 seconds behind FM, which only matters if you’re listening to both at once.</li><li><b>Extras:</b> song names, pausing, rewinding and favourites, which FM can’t do.</li></ul>
+""",
+  },
 ]
 
 HEAD = """<!doctype html>
