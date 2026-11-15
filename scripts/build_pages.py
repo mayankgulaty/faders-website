@@ -166,7 +166,7 @@ def page(path, title, desc, body, jsonld=None, crumbs=None):
 <body class="doc sp">
 <header class="nav"><div class="nav-inner"><a class="brand" href="/"><img src="/assets/icon.png" alt="" width="30" height="30"><span>Faders</span></a><nav class="nav-links" aria-label="Pages"><a href="/radio/">Stations</a><a href="/genre/">Genres</a><a href="{APP}" rel="noopener">Get the app</a></nav></div></header>
 <main class="sp-main">{crumbs_html}{body}</main>
-<footer class="footer"><div class="footer-inner"><nav aria-label="Footer"><a href="/">Faders</a><a href="/radio/">Stations by country</a><a href="/genre/">Genres</a><a href="/updates">Updates</a><a href="/support">Support</a><a href="/privacy">Privacy</a></nav><p>Station information from <a href="https://www.radio-browser.info" rel="noopener">radio-browser.info</a>. Station names and logos belong to their owners; Faders plays each station’s own public stream and never alters it. © 2026 Mayank Gulaty, Ireland.</p></div></footer>
+<footer class="footer"><div class="footer-inner"><nav aria-label="Footer"><a href="/">Faders</a><a href="/radio/">Stations by country</a><a href="/genre/">Genres</a><a href="/guides/">Guides</a><a href="/updates">Updates</a><a href="/support">Support</a><a href="/privacy">Privacy</a></nav><p>Station information from <a href="https://www.radio-browser.info" rel="noopener">radio-browser.info</a>. Station names and logos belong to their owners; Faders plays each station’s own public stream and never alters it. © 2026 Mayank Gulaty, Ireland.</p></div></footer>
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden><div class="sheet-card"><button class="sheet-close" type="button" aria-label="Close" data-close>✕</button><img src="/assets/icon.png" alt="" width="68" height="68"><h3 id="sheetTitle">Keep listening in Faders</h3><p id="sheetText">That was a taste. The app is free, plays on with your phone locked and names every song.</p>{STORE}</div></div>
 <script src="/assets/page.js" defer></script>
 </body>
@@ -314,7 +314,8 @@ page("/genre/", "Radio by genre – listen live online | Faders",
      body, None, [("Faders", "/"), ("Genres", None)])
 
 # ---------- Sitemap ----------
-urls = ["/", "/updates", "/press", "/support", "/privacy", "/radio/", "/genre/"]
+urls = ["/", "/updates", "/press", "/support", "/privacy", "/radio/", "/genre/", "/guides/"]
+urls += sorted(f"/guides/{d}/" for d in os.listdir("guides") if os.path.isfile(f"guides/{d}/index.html")) if os.path.isdir("guides") else []
 urls += [f"/radio/{country_slug[c]}/" for c in by_country if by_country[c]]
 urls += [f"/genre/{genre_slug[t]}/" for t in by_genre if by_genre[t]]
 urls += [f"/station/{slug_of[u]}/" for u in stations]
