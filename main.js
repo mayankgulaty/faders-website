@@ -294,6 +294,74 @@ function drawScope(t) {
   sctx.fillStyle = `hsla(${hue}, 90%, 62%, ${0.25 + level * 0.6})`; sctx.fill();
 }
 
+// ---------- The 3D globe (d3-geo orthographic, Natural Earth countries) ----------
+const G = (() => {
+  const canvas = $("#globe"), g = canvas.getContext("2d");
+  const has = typeof d3 !== "undefined" && d3.geoOrthographic && typeof topojson !== "undefined";
+  const proj = has ? d3.geoOrthographic().clipAngle(90).precision(0.6) : null;
+  const path = has ? d3.geoPath(proj, g) : null;
+  const grat = has ? d3.geoGraticule10() : null;
+  let land = null, borders = null, rot = [-8, -22], fly = null, visible = false, drag = null, t0 = 0;
+  const api = { spinning: false, pin: null };
+  if (has) fetch("assets/vendor/countries-110m.json").then((r) => r.json()).then((w) => {
+    land = topojson.feature(w, w.objects.land);
+    borders = topojson.mesh(w, w.objects.countries, (a, b) => a !== b);
+  }).catch(() => {});
+  api.flyTo = (lon, lat) => {
+    api.pin = [lon, lat]; t0 = performance.now();
+    const target = [-lon, clamp(-lat, -70, 70)];
+    let d = ((target[0] - rot[0]) % 360 + 540) % 360 - 180;   // the short way round
+    fly = { from: rot.slice(), to: [rot[0] + d - 360, target[1]], start: performance.now() };   // plus one extra lap, for fun
+  };
+  function draw(now) {
+    const dpr = fit(canvas), W = canvas.width, H = canvas.height, r = Math.min(W, H) / 2 - 10 * dpr;
+    g.clearRect(0, 0, W, H);
+    if (fly) {
+      const k = clamp((now - fly.start) / 1600, 0, 1), e = 1 - Math.pow(1 - k, 4);
+      rot = [fly.from[0] + (fly.to[0] - fly.from[0]) * e, fly.from[1] + (fly.to[1] - fly.from[1]) * e];
+      if (k >= 1) fly = null;
+    } else if (api.spinning) rot[0] += 9;
+    else if (!drag && !api.pin) rot[0] += 0.12;
+    const cx = W / 2, cy = H / 2;
+    // Atmosphere.
+    const glow = g.createRadialGradient(cx, cy, r * 0.9, cx, cy, r * 1.12);
+    glow.addColorStop(0, "rgba(212,255,79,0.35)"); glow.addColorStop(1, "rgba(212,255,79,0)");
+    g.fillStyle = glow; g.beginPath(); g.arc(cx, cy, r * 1.12, 0, Math.PI * 2); g.fill();
+    // Ocean.
+    const sea = g.createRadialGradient(cx - r * 0.35, cy - r * 0.4, r * 0.1, cx, cy, r);
+    sea.addColorStop(0, "#4b8df0"); sea.addColorStop(1, "#173c8f");
+    g.fillStyle = sea; g.beginPath(); g.arc(cx, cy, r, 0, Math.PI * 2); g.fill();
+    if (has) {
+      proj.scale(r).translate([cx, cy]).rotate(rot);
+      g.beginPath(); path(grat); g.strokeStyle = "rgba(255,255,255,0.10)"; g.lineWidth = 1 * dpr; g.stroke();
+      if (land) { g.beginPath(); path(land); g.fillStyle = "#8ee27a"; g.fill(); }
+      if (borders) { g.beginPath(); path(borders); g.strokeStyle = "rgba(23,11,46,0.35)"; g.lineWidth = 0.8 * dpr; g.stroke(); }
+      // The station: a pulsing pin, when it's on this side of the world.
+      if (api.pin && d3.geoDistance(api.pin, [-rot[0], -rot[1]]) < Math.PI / 2 - 0.05) {
+        const [px, py] = proj(api.pin), pulse = ((now - t0) % 1400) / 1400;
+        g.beginPath(); g.arc(px, py, (6 + pulse * 22) * dpr, 0, Math.PI * 2); g.fillStyle = `rgba(255,61,127,${0.5 * (1 - pulse)})`; g.fill();
+        g.beginPath(); g.arc(px, py, 6 * dpr, 0, Math.PI * 2); g.fillStyle = "#ff3d7f"; g.fill();
+        g.lineWidth = 2.5 * dpr; g.strokeStyle = "#fff3e3"; g.stroke();
+      }
+    }
+    // Light from the top left, night on the far side.
+    const shade = g.createRadialGradient(cx - r * 0.45, cy - r * 0.5, r * 0.2, cx, cy, r * 1.05);
+    shade.addColorStop(0, "rgba(255,255,255,0.18)"); shade.addColorStop(0.55, "rgba(0,0,0,0)"); shade.addColorStop(1, "rgba(10,4,30,0.55)");
+    g.fillStyle = shade; g.beginPath(); g.arc(cx, cy, r, 0, Math.PI * 2); g.fill();
+  }
+  canvas.addEventListener("pointerdown", (e) => { drag = { x: e.clientX, y: e.clientY, moved: false }; fly = null; canvas.setPointerCapture(e.pointerId); });
+  canvas.addEventListener("pointermove", (e) => {
+    if (!drag) return;
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    if (Math.abs(dx) + Math.abs(dy) > 3) drag.moved = true;
+    rot = [rot[0] + dx * 0.45, clamp(rot[1] - dy * 0.45, -75, 75)]; drag.x = e.clientX; drag.y = e.clientY;
+  });
+  canvas.addEventListener("pointerup", () => { const tap = drag && !drag.moved; drag = null; if (tap) spin(); });
+  new IntersectionObserver(([e]) => (visible = e.isIntersecting)).observe(canvas);
+  api.frame = (now) => { if (visible) draw(now); };
+  return api;
+})();
+
 // ---------- Spin the globe ----------
 let globePool = [];
 const spinBtn = $("#spinBtn"), card = $("#globeCard"), place = $("#place"), sname = $("#sname"), stags = $("#stags"), actions = $("#landedActions");
@@ -305,14 +373,14 @@ async function directory(path) {
 }
 async function loadPool() {
   if (globePool.length) return;
-  const list = await directory("/json/stations/search?order=votes&reverse=true&limit=400&hidebroken=true&is_https=true&codec=MP3&lastcheckok=1");
+  const list = await directory("/json/stations/search?order=votes&reverse=true&limit=400&hidebroken=true&is_https=true&codec=MP3&lastcheckok=1&has_geo_info=true");
   // Never the one broadcaster we don't name in marketing; nothing marked explicit.
-  globePool = (list || []).filter((s) => s.url_resolved?.startsWith("https://") && !/\bbbc\b/i.test(s.name) && !/explicit|adult|xxx/i.test(s.tags || ""));
+  globePool = (list || []).filter((s) => s.url_resolved?.startsWith("https://") && Number.isFinite(s.geo_lat) && Number.isFinite(s.geo_long) && !/\bbbc\b/i.test(s.name) && !/explicit|adult|xxx/i.test(s.tags || ""));
 }
 let spinning = false;
 async function spin() {
   if (spinning) return;
-  spinning = true; card.classList.add("spinning"); spinBtn.disabled = true;
+  spinning = true; G.spinning = true; G.pin = null; spinBtn.disabled = true;
   place.textContent = "Spinning…"; sname.textContent = "🌍 🌎 🌏"; stags.textContent = ""; actions.hidden = true;
   ensureContext(); setStatic(0.08);
   stopAudio(); setState("idle");
@@ -326,7 +394,7 @@ function tryStation(attempt) {
   source = { kind: "globe", station: { name: s.name.trim(), country: regionNames?.of(s.countrycode) || s.country, cc: s.countrycode } };
   playURL(s.url_resolved, {
     onPlaying: () => {
-      stopSpin(); globeHeard = 0;
+      stopSpin(); globeHeard = 0; G.flyTo(s.geo_long, s.geo_lat);
       const country = regionNames?.of(s.countrycode) || s.country || "Somewhere";
       place.textContent = `${flag(s.countrycode)} ${s.state ? s.state + ", " : ""}${country}`;
       sname.textContent = s.name.trim();
@@ -336,10 +404,9 @@ function tryStation(attempt) {
     onFail: () => tryStation(attempt + 1),
   });
 }
-function stopSpin() { spinning = false; card.classList.remove("spinning"); spinBtn.disabled = false; setStatic(0); }
+function stopSpin() { spinning = false; G.spinning = false; spinBtn.disabled = false; setStatic(0); }
 function stopGlobe(reset) { if (source?.kind === "globe") { stopAudio(); setState("idle"); if (reset) { actions.hidden = true; place.textContent = "Where next?"; } onScroll(); } }
 spinBtn.addEventListener("click", spin);
-$("#globe").parentElement.addEventListener("click", (e) => { if (e.target.closest(".globe")) spin(); });
 $("#spinStop").addEventListener("click", () => stopGlobe(true));
 new IntersectionObserver(([e]) => { if (e.isIntersecting) { loadPool(); directory("/json/stats").then((s) => { if (s?.stations) $("#count").textContent = `${(Math.floor(s.stations / 1000) * 1000).toLocaleString("en")}+`; }); } }, { rootMargin: "400px" }).observe($("#spin"));
 
@@ -394,7 +461,7 @@ if (reduceMotion) { tl.route.style.strokeDasharray = "none"; tl.head.style.displ
 // ---------- One animation loop ----------
 let radioOn = true;
 new IntersectionObserver(([e]) => (radioOn = e.isIntersecting)).observe(ui.radio);
-function frame(t) { if (radioOn) drawScope(t); if (tl.on && !reduceMotion) drawTimeline(t); requestAnimationFrame(frame); }
+function frame(t) { if (radioOn) drawScope(t); if (tl.on && !reduceMotion) drawTimeline(t); G.frame(t); requestAnimationFrame(frame); }
 requestAnimationFrame(frame);
 
 // ---------- Tilt ----------

@@ -152,22 +152,12 @@ h2 em, h1 em { font-family: var(--serif); font-style: italic; font-weight: 400; 
 
 /* Spin the globe */
 .spin { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 70px); align-items: center; }
-.globe-card { background: var(--ink); color: var(--cream); border-radius: 34px; padding: 28px; display: grid; grid-template-columns: 150px 1fr; gap: 22px; align-items: center; box-shadow: 0 14px 0 rgba(0,0,0,0.2); transform: rotate(-1.5deg); min-height: 240px; }
-.globe { width: 150px; height: 150px; border-radius: 50%; overflow: hidden; position: relative; background: #2b6fd6; box-shadow: inset -18px -14px 30px rgba(0,0,0,0.45), 0 0 0 6px rgba(255,255,255,0.06); }
-.earth { position: absolute; inset: 0; width: 300%;
-  background:
-    radial-gradient(ellipse 14% 20% at 8% 35%, #4fc46a 60%, transparent 62%),
-    radial-gradient(ellipse 9% 14% at 20% 62%, #4fc46a 60%, transparent 62%),
-    radial-gradient(ellipse 12% 24% at 40% 45%, #4fc46a 60%, transparent 62%),
-    radial-gradient(ellipse 18% 15% at 60% 30%, #4fc46a 60%, transparent 62%),
-    radial-gradient(ellipse 7% 9% at 72% 70%, #4fc46a 60%, transparent 62%),
-    radial-gradient(ellipse 14% 20% at 91% 35%, #4fc46a 60%, transparent 62%);
-  animation: earth 18s linear infinite; }
-.spinning .earth { animation-duration: 1.2s; }
-@keyframes earth { to { transform: translateX(-66.66%); } }
+.globe-card { background: var(--ink); color: var(--cream); border-radius: 34px; padding: 28px; display: grid; grid-template-columns: 230px 1fr; gap: 22px; align-items: center; box-shadow: 0 14px 0 rgba(0,0,0,0.2); transform: rotate(-1.5deg); min-height: 240px; }
+.globe { width: 230px; height: 230px; cursor: grab; touch-action: none; border-radius: 50%; }
+.globe:active { cursor: grabbing; }
 .landed p { margin: 0; }
 .place { font: 700 13px var(--display); letter-spacing: 0.1em; text-transform: uppercase; color: var(--lime); }
-.sname { font: 800 clamp(26px, 2.6vw, 36px)/1.05 var(--display); letter-spacing: -0.03em; margin: 6px 0 !important; word-break: break-word; }
+.sname { font: 800 clamp(22px, 2.2vw, 30px)/1.08 var(--display); letter-spacing: -0.03em; margin: 6px 0 !important; overflow-wrap: break-word; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .stags { opacity: 0.75; font-size: 15px; }
 .landed-actions[hidden] { display: none; }
 .landed-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
@@ -327,7 +317,7 @@ h2 em, h1 em { font-family: var(--serif); font-style: italic; font-weight: 400; 
   .s2 { right: -6px; top: 20px; }
   .handle { height: 40px; border-width: 10px; }
   .globe-card { grid-template-columns: minmax(0, 1fr); text-align: left; }
-  .globe { width: 110px; height: 110px; }
+  .globe { width: 210px; height: 210px; justify-self: center; }
   .cards, .tickets { grid-template-columns: minmax(0, 1fr); }
   .card { min-height: 380px; }
   .lane { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 40px; height: 82px; gap: 4px; align-content: center; }

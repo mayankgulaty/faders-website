@@ -11,7 +11,7 @@ Static HTML, CSS and JS: no build step and no tracking. Serve the folder (`pytho
 - `index.html`, top to bottom:
   - **The radio:** a retro transistor radio built in CSS. Turn the knob or drag the dial: static between stations, locking onto six moods. The speaker grille pulses with the sound, and an LCD shows the song.
   - **Lime marquee:** songs on air now.
-  - **Spin the globe:** plays a random station from the 400 most-voted HTTPS MP3 stations on radio-browser for 60 s, then "Keep it in Faders".
+  - **Spin the globe:** a 3D globe (d3-geo orthographic with Natural Earth countries, all self-hosted in `assets/vendor`; drag to turn it, tap to spin) whirls, then flies to the station's real position and drops a pin. It plays a random station from the 400 most-voted HTTPS MP3 stations with map positions (`has_geo_info=true`) on radio-browser for 60 s, then "Keep it in Faders".
   - **Song receipt:** names print onto a paper receipt.
   - **Skin picker:** Turntable, Cassette, Mixing Desk and Classic.
   - **Break timeline**, then feature cards, iPad and the Duo film, tickets, "Turn it up".

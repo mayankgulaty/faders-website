@@ -78,7 +78,7 @@
           <button class="btn big" id="spinBtn" type="button">🌍 Spin the globe</button>
         </div>
         <div class="globe-card" id="globeCard">
-          <div class="globe" id="globe" aria-hidden="true"><div class="earth"></div></div>
+          <canvas class="globe" id="globe" role="img" aria-label="A 3D globe. Drag to turn it, tap to spin."></canvas>
           <div class="landed" id="landed" aria-live="polite">
             <p class="place" id="place">Where to?</p>
             <p class="sname" id="sname">Anywhere at all.</p>
@@ -210,7 +210,7 @@
   <footer class="foot">
     <div class="wrap">
       <nav aria-label="Footer"><a href="support.html">Support</a><a href="privacy.html">Privacy</a><a href="mailto:support@faders.app">support@faders.app</a></nav>
-      <p>The moods and globe on this page stream from <a href="https://somafm.com" rel="noopener">SomaFM</a>, <a href="https://radioparadise.com" rel="noopener">Radio Paradise</a>, <a href="https://isekoi-radio.com" rel="noopener">ISEKOI Radio</a>, <a href="https://ambientsleepingpill.com" rel="noopener">Ambient Sleeping Pill</a>, <a href="https://laut.fm" rel="noopener">laut.fm</a> and stations listed on <a href="https://www.radio-browser.info" rel="noopener">radio-browser.info</a>. Station names belong to their owners. © 2026 Mayank Gulaty, Ireland. Apple, iPhone, iPad, CarPlay and Apple Watch are trademarks of Apple Inc.</p>
+      <p>The moods and globe on this page stream from <a href="https://somafm.com" rel="noopener">SomaFM</a>, <a href="https://radioparadise.com" rel="noopener">Radio Paradise</a>, <a href="https://isekoi-radio.com" rel="noopener">ISEKOI Radio</a>, <a href="https://ambientsleepingpill.com" rel="noopener">Ambient Sleeping Pill</a>, <a href="https://laut.fm" rel="noopener">laut.fm</a> and stations listed on <a href="https://www.radio-browser.info" rel="noopener">radio-browser.info</a>. Globe drawn with d3-geo and Natural Earth data. Station names belong to their owners. © 2026 Mayank Gulaty, Ireland. Apple, iPhone, iPad, CarPlay and Apple Watch are trademarks of Apple Inc.</p>
     </div>
   </footer>
 
@@ -238,6 +238,9 @@
     </div>
   </div>
 
+  <script src="assets/vendor/d3-array.min.js" defer></script>
+  <script src="assets/vendor/d3-geo.min.js" defer></script>
+  <script src="assets/vendor/topojson-client.min.js" defer></script>
   <script src="main.js" defer></script>
 </body>
 </html>
