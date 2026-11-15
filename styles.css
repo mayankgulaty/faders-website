@@ -425,3 +425,12 @@ body.doc .nav { position: sticky; top: 0; left: 0; right: 0; border-radius: 0; b
 .faq summary::after { content: "+"; font-size: 28px; line-height: 0.8; color: var(--pink); transition: transform 0.25s var(--ease); }
 .faq details[open] summary::after { transform: rotate(45deg); }
 .faq details p { margin: 12px 0 0; font-size: 17px; max-width: 70ch; }
+
+/* Explore links */
+.explore { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 50px; margin-top: 30px; }
+.explore h3 { font-size: 24px; margin-bottom: 10px; color: var(--lime); }
+.explore p, .explore ul { margin: 0; font-size: 17px; line-height: 1.9; }
+.explore ul { padding-left: 18px; }
+.explore a { color: var(--cream); text-decoration-color: rgba(255,243,227,0.35); text-underline-offset: 4px; }
+.explore a:hover { color: var(--lime); }
+@media (max-width: 760px) { .explore { grid-template-columns: minmax(0, 1fr); } }
