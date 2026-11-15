@@ -131,6 +131,7 @@ HEAD = """<!doctype html>
 <body class="doc sp"><header class="nav"><div class="nav-inner"><a class="brand" href="/"><img src="/assets/icon.png" alt="" width="30" height="30"><span>Faders</span></a><nav class="nav-links" aria-label="Pages"><a href="/radio/">Stations</a><a href="/guides/">Guides</a><a href="{app}" rel="noopener">Get the app</a></nav></div></header>
 <main class="sp-main guide">{body}</main>
 <footer class="footer"><div class="footer-inner"><nav aria-label="Footer"><a href="/">Faders</a><a href="/guides/">Guides</a><a href="/radio/">Stations</a><a href="/updates">Updates</a><a href="/support">Support</a><a href="/privacy">Privacy</a></nav><p>© 2026 Mayank Gulaty, Ireland.</p></div></footer>
+<script src="/assets/campaign.js" defer></script>
 </body></html>
 """
 

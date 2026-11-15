@@ -169,6 +169,7 @@ def page(path, title, desc, body, jsonld=None, crumbs=None):
 <footer class="footer"><div class="footer-inner"><nav aria-label="Footer"><a href="/">Faders</a><a href="/radio/">Stations by country</a><a href="/genre/">Genres</a><a href="/guides/">Guides</a><a href="/updates">Updates</a><a href="/support">Support</a><a href="/privacy">Privacy</a></nav><p>Station information from <a href="https://www.radio-browser.info" rel="noopener">radio-browser.info</a>. Station names and logos belong to their owners; Faders plays each station’s own public stream and never alters it. © 2026 Mayank Gulaty, Ireland.</p></div></footer>
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden><div class="sheet-card"><button class="sheet-close" type="button" aria-label="Close" data-close>✕</button><img src="/assets/icon.png" alt="" width="68" height="68"><h3 id="sheetTitle">Keep listening in Faders</h3><p id="sheetText">That was a taste. The app is free, plays on with your phone locked and names every song.</p>{STORE}</div></div>
 <script src="/assets/page.js" defer></script>
+<script src="/assets/campaign.js" defer></script>
 </body>
 </html>
 """
