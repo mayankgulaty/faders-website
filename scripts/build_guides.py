@@ -177,6 +177,44 @@ GUIDES = [
 <ul><li><b>Coverage:</b> FM fades outside the station’s area; the stream works anywhere with data.</li><li><b>Sound:</b> most streams are 128 kbps, close to FM quality, and without static.</li><li><b>Delay:</b> streams run 10 to 30 seconds behind FM, which only matters if you’re listening to both at once.</li><li><b>Extras:</b> song names, pausing, rewinding and favourites, which FM can’t do.</li></ul>
 """,
   },
+{
+    "slug": "tunein-alternative-iphone",
+    "title": "Looking for a TuneIn alternative on iPhone?",
+    "desc": "A fair comparison of TuneIn and Faders for live radio on iPhone: subscriptions, song names, ad breaks, CarPlay, privacy, and when TuneIn is still the better pick.",
+    "body": """
+<p>TuneIn is one of the biggest radio apps in the world, with over 100,000 stations, podcasts and, with its Premium subscription, live sports and audiobooks. If you mainly want live radio, though, you might want something simpler. Here’s an honest comparison.</p>
+<h2>At a glance</h2>
+<table class="data"><thead><tr><th></th><th>TuneIn</th><th>Faders</th></tr></thead><tbody>
+<tr><td>Price</td><td>Free, with a Premium subscription</td><td>Free, with an optional one-time Plus purchase</td></tr>
+<tr><td>Live radio stations</td><td>100,000+</td><td>Tens of thousands, from every country</td></tr>
+<tr><td>Song names</td><td>Shows the station’s song info</td><td>Shows the station’s, and names the song itself when it’s missing</td></tr>
+<tr><td>Ad breaks</td><td>Premium offers commercial-free stations</td><td>Changes the channel to another of your stations, free</td></tr>
+<tr><td>CarPlay and Apple Watch</td><td>Yes</td><td>Yes, plus Car Mode for cars without CarPlay</td></tr>
+<tr><td>Podcasts, audiobooks, live sports</td><td>Yes (sports and audiobooks with Premium)</td><td>No</td></tr>
+</tbody></table>
+<h2>Where Faders is different</h2>
+<ul><li><b>No subscription.</b> Listening is free. Faders Plus is a single purchase, shared with your family, for extras like pause and rewind, skins and alarms.</li><li><b>Every song named.</b> When a station doesn’t say what’s playing, Faders listens and identifies it, with the album, year and cover.</li><li><b>Changing the channel during breaks.</b> Faders can move you to one of your stations playing a song while yours is on an ad break, and bring you back after. It never alters any station’s stream.</li><li><b>Private by design.</b> No account and no tracking: the App Store privacy label says “Data Not Collected”.</li><li><b>Ad-free moods</b> from listener-supported stations, for focus, sleep and more.</li></ul>
+<h2>When TuneIn is the better pick</h2>
+<p>If you want podcasts, audiobooks or US live sports coverage in the same app as your radio, TuneIn does all of that and Faders doesn’t. Faders is for people who want live radio, done really well.</p>
+<p class="fine">Compared using each app’s App Store listing in November 2026. Features and prices change; check the App Store for the latest.</p>
+""",
+  },
+  {
+    "slug": "radio-garden-alternative",
+    "title": "Radio Garden alternative for iPhone",
+    "desc": "Love Radio Garden’s globe? How it compares with Faders on iPhone: a world map too, plus song names, CarPlay, ad-free moods and changing station during breaks.",
+    "body": """
+<p>Radio Garden is a beautiful idea: spin a globe, tap a green dot, and hear the radio from that town. If you love it but want an everyday radio app as well, here’s how Faders compares.</p>
+<h2>What Radio Garden does well</h2>
+<ul><li>The globe is a joy for discovering stations by place.</li><li>It’s free, with visual ads; a Premium purchase removes them and adds a sleep timer.</li><li>Favourites sync with iCloud, and the Lock Screen shows the song when the station sends it.</li></ul>
+<h2>What Faders adds</h2>
+<ul><li><b>A World Map too,</b> plus search by name or frequency, genres in the languages you speak, and a country’s stations sorted by what’s popular.</li><li><b>Every song named,</b> even when the station doesn’t send it, with album, year and cover, and a history of everything you heard.</li><li><b>Changing the channel during ad breaks</b> to another of your stations playing music, then back. It never alters any stream.</li><li><b>Ad-free moods,</b> CarPlay, Car Mode, Apple Watch, widgets, Siri and a sleep timer, free.</li><li><b>No ads of ours and no tracking.</b> The App Store privacy label is “Data Not Collected”.</li></ul>
+<h2>Use both</h2>
+<p>They’re not either/or. Many people use the globe to discover a station, then add it to an everyday app for the car and the kitchen. In Faders you can also <a href="/">spin our globe on the website</a> and land somewhere random.</p>
+<p>Browse <a href="/radio/">stations by country</a> or <a href="/genre/">by genre</a> to find your next favourite.</p>
+<p class="fine">Compared using each app’s App Store listing in November 2026. Features and prices change; check the App Store for the latest.</p>
+""",
+  },
 ]
 
 HEAD = """<!doctype html>

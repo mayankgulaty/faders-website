@@ -14,7 +14,7 @@ Key facts:
 - [Home](https://faders.app/): the app, with a playable radio and Spin the globe
 - [Stations by country](https://faders.app/radio/): the most-listened stations in 93 countries
 - [Radio by genre](https://faders.app/genre/)
-- [Guides](https://faders.app/guides/): song names, CarPlay, Irish radio abroad, fewer ads, waking up to the radio, Apple Watch, Christmas radio, data usage, FM radio on iPhone
+- [Guides](https://faders.app/guides/): song names, CarPlay, Irish radio abroad, fewer ads, waking up to the radio, Apple Watch, Christmas radio, data usage, FM radio on iPhone, and fair comparisons with TuneIn and Radio Garden
 - [What's new](https://faders.app/updates): every version's release notes
 - [Press kit](https://faders.app/press): descriptions, facts, icon and screenshots
 - [Privacy](https://faders.app/privacy)

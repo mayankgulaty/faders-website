@@ -30,6 +30,8 @@ CARDS = [
     ("guide-christmas-radio-stations", "Guide", "Christmas radio,", "all season.", "#ff3d7f"),
     ("guide-internet-radio-data-usage", "Guide", "How much data", "does radio use?", "#3a128c"),
     ("guide-fm-radio-on-iphone", "Guide", "FM radio", "on iPhone?", "#ff7a2f"),
+    ("guide-tunein-alternative-iphone", "Compared", "A TuneIn", "alternative.", "#3a128c"),
+    ("guide-radio-garden-alternative", "Compared", "Radio Garden,", "and beyond.", "#ff7a2f"),
 ]
 
 TEMPLATE = """<!doctype html><html><head><meta charset="utf-8"><style>
