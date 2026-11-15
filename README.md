@@ -1,6 +1,6 @@
 # Faders website
 
-The product site for [Faders](https://github.com/mayankgulaty/faders), the radio app that doesn’t suck. Lives at **faders.app** (GitHub Pages from `main`; DNS on Cloudflare).
+The product site for [Faders](https://github.com/mayankgulaty/faders), the radio app that doesn’t suck. Lives at **faders.app**: Cloudflare Workers static assets, deployed automatically from `main` (also at faders-website.mayankgulaty.workers.dev). The old GitHub Pages copy stays up for old links. `.assetsignore` keeps README and git files off the site.
 
 Static HTML, CSS and JS: no build step and no tracking. Serve the folder (`python3 -m http.server`) and open it.
 
