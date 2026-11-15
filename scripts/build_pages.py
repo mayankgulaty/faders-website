@@ -137,7 +137,7 @@ STORE_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2
 STORE = f'<a class="store" href="{APP}" rel="noopener">{STORE_SVG}<span><small>Download on the</small>App Store</span></a>'
 
 
-def page(path, title, desc, body, jsonld=None, crumbs=None, og="/assets/og.png"):
+def page(path, title, desc, body, jsonld=None, crumbs=None, og="/assets/og-home.png"):
     crumbs_html = ""
     if crumbs:
         crumbs_html = '<nav class="crumbs" aria-label="Breadcrumb">' + " / ".join(

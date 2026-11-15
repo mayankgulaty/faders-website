@@ -149,7 +149,7 @@ def esc(s):
     return html.escape(s, quote=True)
 
 
-def write(path, title, desc, body, ld, og="/assets/og.png"):
+def write(path, title, desc, body, ld, og="/assets/og-home.png"):
     url = SITE + path
     out = HEAD.format(title=esc(title), desc=esc(desc), url=url, app=APP, body=body, og=og,
                       ld="".join(f'<script type="application/ld+json">{json.dumps(j, ensure_ascii=False)}</script>' for j in ld))

@@ -4,7 +4,7 @@
     python3 scripts/make_og.py
 
 Run locally when a guide or page headline changes; the images are committed. Pages without their
-own image use assets/og.png.
+own image use assets/og-home.png (copied from assets/og/home.png; renamed when it changes, so X fetches it afresh).
 """
 import html, os, subprocess, sys, tempfile, shutil
 

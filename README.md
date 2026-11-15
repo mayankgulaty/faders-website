@@ -27,6 +27,6 @@ Static HTML, CSS and JS: no build step and no tracking. Serve the folder (`pytho
   - Never use `-demoLibrary` (it includes a BBC station), and crop any For You row that shows one.
 - `assets/duo-film.mp4`: the Duo App Store preview, cropped to the phone (no captions).
 - `support.html`, `privacy.html`: support and the privacy policy. Keep the privacy text in step with the `faders-app` repo, which App Store Connect links to until the URLs move to faders.app.
-- `assets/`: `shots/` (from `AppStore/screenshots` in the app repo, made with `cwebp -q 78 -resize 660 0`), `duo-film.mp4` (the Duo preview at 1280 px, crf 28, no audio), and `og.png` (1200×630, rendered from HTML).
+- `assets/`: `shots/` (from `AppStore/screenshots` in the app repo, made with `cwebp -q 78 -resize 660 0`), `duo-film.mp4` (the Duo preview at 1280 px, crf 28, no audio), and `og-home.png` plus `og/*.png` (1200×630 share images from `scripts/make_og.py`; give a changed image a new file name, because X caches images by address for about a week).
 
 Never show lyrics (App Store builds don't have them), never say "skip ads", and never name the BBC.
