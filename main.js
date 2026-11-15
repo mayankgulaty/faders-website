@@ -19,18 +19,19 @@ const root = document.documentElement;
 const soma = (ch, n) => ({ n, u: `https://ice5.somafm.com/${ch}-128-mp3`, meta: ["soma", ch], logo: `https://somafm.com/logos/256/${ch}256.png`, by: "SomaFM" });
 const rp = (mount, n) => ({ n, u: `https://stream.radioparadise.com/${mount}`, meta: null, logo: null, by: "Radio Paradise" });
 const laut = (st, n) => ({ n, u: `https://stream.laut.fm/${st}`, meta: ["laut", st], logo: null, by: "laut.fm" });
+// Mood colours stay in the brand range (violet, magenta, pink, amber), never green.
 // Each mood leads with streams that play in any browser; SomaFM is a backup (some networks get a 403 from it).
 const MOODS = [
-  { id: "focus", name: "Focus", h: 262, st: [
+  { id: "focus", name: "Focus", h: 265, st: [
     { n: "ISEKOI Chill Zone", u: "https://public.isekoi-radio.com/listen/chill/radio.mp3", meta: ["azura", "https://public.isekoi-radio.com/api/nowplaying/chill"], by: "ISEKOI Radio" },
     soma("fluid", "Fluid"), soma("vaporwaves", "Vaporwaves")] },
-  { id: "chill", name: "Chill", h: 152, st: [rp("mellow-128", "Radio Paradise Mellow"), soma("groovesalad", "Groove Salad"), soma("lush", "Lush")] },
-  { id: "sleep", name: "Sleep", h: 226, st: [
+  { id: "chill", name: "Chill", h: 292, st: [rp("mellow-128", "Radio Paradise Mellow"), soma("groovesalad", "Groove Salad"), soma("lush", "Lush")] },
+  { id: "sleep", name: "Sleep", h: 246, st: [
     { n: "Ambient Sleeping Pill", u: "https://radio.stereoscenic.com/asp-h", meta: ["ice", "https://radio.stereoscenic.com/status-json.xsl"], by: "Ambient Sleeping Pill" },
     soma("dronezone", "Drone Zone"), soma("deepspaceone", "Deep Space One")] },
-  { id: "jazz", name: "Jazz Café", h: 32, st: [laut("jazz", "Jazz"), soma("sonicuniverse", "Sonic Universe"), soma("secretagent", "Secret Agent")] },
-  { id: "energy", name: "Energy", h: 336, st: [rp("rock-128", "Radio Paradise Rock"), rp("mp3-128", "Radio Paradise"), soma("indiepop", "Indie Pop Rocks")] },
-  { id: "retro", name: "Retro", h: 292, st: [laut("80er", "80er"), soma("u80s", "Underground 80s"), soma("spacestation", "Space Station")] },
+  { id: "jazz", name: "Jazz Café", h: 22, st: [laut("jazz", "Jazz"), soma("sonicuniverse", "Sonic Universe"), soma("secretagent", "Secret Agent")] },
+  { id: "energy", name: "Energy", h: 340, st: [rp("rock-128", "Radio Paradise Rock"), rp("mp3-128", "Radio Paradise"), soma("indiepop", "Indie Pop Rocks")] },
+  { id: "retro", name: "Retro", h: 314, st: [laut("80er", "80er"), soma("u80s", "Underground 80s"), soma("spacestation", "Space Station")] },
 ];
 
 function moodForNow() {
@@ -90,7 +91,8 @@ let playing = false;
 let metaTimer = 0, stallTimer = 0;
 let listened = 0, limit = FADE_AT, extended = false, nudged = false;
 
-function setHue(h) { root.style.setProperty("--h", h); }
+// Only the tuner takes the mood colour; the page keeps the brand colours of the icon and screenshots.
+function setHue(h) { ui.tuner.style.setProperty("--h", h); }
 
 function buildDial() {
   MOODS.forEach((m, i) => {
@@ -272,7 +274,7 @@ function drawViz(t) {
   const W = ui.viz.width, H = ui.viz.height;
   vctx.clearRect(0, 0, W, H);
   const bars = 48, gap = 3 * dpr, bw = (W - gap * (bars - 1)) / bars;
-  const hue = +getComputedStyle(root).getPropertyValue("--h") || 300;
+  const hue = +getComputedStyle(ui.tuner).getPropertyValue("--h") || 300;
   let vals;
   if (analyser && playing) {
     analyser.getByteFrequencyData(freq);
