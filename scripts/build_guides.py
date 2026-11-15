@@ -126,7 +126,16 @@ GUIDES = [
 HEAD = """<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{title}</title><meta name="description" content="{desc}"><meta name="theme-color" content="#3a128c"><meta name="apple-itunes-app" content="app-id=6825091695">
-<link rel="canonical" href="{url}"><meta property="og:title" content="{title}"><meta property="og:description" content="{desc}"><meta property="og:image" content="https://faders.app/assets/og.png"><meta property="og:type" content="article">
+<link rel="canonical" href="{url}"><meta property="og:title" content="{title}"><meta property="og:description" content="{desc}"><meta property="og:site_name" content="Faders">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="https://faders.app{og}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{title}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{desc}">
+<meta name="twitter:image" content="https://faders.app{og}"><meta property="og:type" content="article">
 <link rel="icon" type="image/png" href="/assets/favicon.png"><link rel="stylesheet" href="/styles.css">{ld}</head>
 <body class="doc sp"><header class="nav"><div class="nav-inner"><a class="brand" href="/"><img src="/assets/icon.png" alt="" width="30" height="30"><span>Faders</span></a><nav class="nav-links" aria-label="Pages"><a href="/radio/">Stations</a><a href="/guides/">Guides</a><a href="{app}" rel="noopener">Get the app</a></nav></div></header>
 <main class="sp-main guide">{body}</main>
@@ -140,9 +149,9 @@ def esc(s):
     return html.escape(s, quote=True)
 
 
-def write(path, title, desc, body, ld):
+def write(path, title, desc, body, ld, og="/assets/og.png"):
     url = SITE + path
-    out = HEAD.format(title=esc(title), desc=esc(desc), url=url, app=APP, body=body,
+    out = HEAD.format(title=esc(title), desc=esc(desc), url=url, app=APP, body=body, og=og,
                       ld="".join(f'<script type="application/ld+json">{json.dumps(j, ensure_ascii=False)}</script>' for j in ld))
     os.makedirs(path.strip("/"), exist_ok=True)
     with open(path.strip("/") + "/index.html", "w") as f:
@@ -157,10 +166,10 @@ for g in GUIDES:
             f'<section><h2>More guides</h2><ul class="guide-list">{others}</ul></section>')
     ld = [{"@context": "https://schema.org", "@type": "Article", "headline": g["title"], "description": g["desc"], "datePublished": PUBLISHED,
            "author": {"@type": "Person", "name": "Mayank Gulaty"}, "publisher": {"@type": "Organization", "name": "Faders", "logo": {"@type": "ImageObject", "url": SITE + "/assets/icon.png"}},
-           "mainEntityOfPage": SITE + path, "image": SITE + "/assets/og.png"}]
-    write(path, f"{g['title']} | Faders", g["desc"], body, ld)
+           "mainEntityOfPage": SITE + path, "image": SITE + f"/assets/og/guide-{g['slug']}.png"}]
+    write(path, f"{g['title']} | Faders", g["desc"], body, ld, og=f"/assets/og/guide-{g['slug']}.png")
 
 items = "".join(f'<a class="guide-card" href="/guides/{g["slug"]}/"><b>{esc(g["title"])}</b><small>{esc(g["desc"])}</small></a>' for g in GUIDES)
 write("/guides/", "Radio guides | Faders", "Practical guides to live radio on iPhone, iPad, CarPlay and Apple Watch: song names, fewer ads, waking up to the radio and more.",
-      f'<section class="sp-hero plain"><div><p class="eyebrow">Guides</p><h1>Radio, made easy.</h1><p>Practical answers to the questions people ask about listening to the radio on Apple devices.</p></div></section><section><div class="guide-grid">{items}</div></section>{CTA}', [])
+      f'<section class="sp-hero plain"><div><p class="eyebrow">Guides</p><h1>Radio, made easy.</h1><p>Practical answers to the questions people ask about listening to the radio on Apple devices.</p></div></section><section><div class="guide-grid">{items}</div></section>{CTA}', [], og="/assets/og/guides.png")
 print(f"{len(GUIDES)} guides")

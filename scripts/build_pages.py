@@ -137,7 +137,7 @@ STORE_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2
 STORE = f'<a class="store" href="{APP}" rel="noopener">{STORE_SVG}<span><small>Download on the</small>App Store</span></a>'
 
 
-def page(path, title, desc, body, jsonld=None, crumbs=None):
+def page(path, title, desc, body, jsonld=None, crumbs=None, og="/assets/og.png"):
     crumbs_html = ""
     if crumbs:
         crumbs_html = '<nav class="crumbs" aria-label="Breadcrumb">' + " / ".join(
@@ -158,7 +158,16 @@ def page(path, title, desc, body, jsonld=None, crumbs=None):
 <link rel="canonical" href="{SITE}{path}">
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
-<meta property="og:image" content="{SITE}/assets/og.png">
+<meta property="og:site_name" content="Faders">
+<meta property="og:url" content="{SITE}{path}">
+<meta property="og:image" content="{SITE}{og}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{e(title)}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{e(title)}">
+<meta name="twitter:description" content="{e(desc)}">
+<meta name="twitter:image" content="{SITE}{og}">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <link rel="stylesheet" href="/styles.css">
 {ld}
@@ -286,14 +295,14 @@ for cc, ids in by_country.items():
 """
     page(f"/radio/{slug}/", f"Radio stations in {n} – listen live online | Faders",
          f"Listen live to the most popular radio stations in {n}. Every song named, on iPhone, iPad, CarPlay and Apple Watch with Faders.",
-         body, None, [("Faders", "/"), ("Stations", "/radio/"), (n, None)])
+         body, None, [("Faders", "/"), ("Stations", "/radio/"), (n, None)], og="/assets/og/stations.png")
 
 body = f"""<section class="sp-hero plain"><div><p class="eyebrow">Live radio</p><h1>Radio stations by country</h1>
 <p>Tens of thousands of live stations from every country. Pick one, or spin the globe in the app.</p><div class="sp-cta">{STORE}</div></div></section>
 <section><div class="sp-countries">{"".join(f'<a href="/radio/{country_slug[cc]}/"><b>{e(country_name[cc])}</b><small>{len(by_country[cc])} popular stations</small></a>' for cc in sorted(by_country, key=lambda c: country_name[c]))}</div></section>"""
 page("/radio/", "Radio stations by country – listen live online | Faders",
      "Live radio from every country: browse the most popular stations by country and listen on iPhone, iPad, CarPlay and Apple Watch with Faders.",
-     body, None, [("Faders", "/"), ("Stations", None)])
+     body, None, [("Faders", "/"), ("Stations", None)], og="/assets/og/stations.png")
 
 # ---------- Genre pages ----------
 shutil.rmtree("genre", ignore_errors=True)
@@ -307,12 +316,12 @@ for t, ids in by_genre.items():
 <section><h2>More genres</h2><p class="sp-links">{" · ".join(f'<a href="/genre/{genre_slug[g]}/">{e(g)}</a>' for g in GENRES if g != t)}</p></section>"""
     page(f"/genre/{genre_slug[t]}/", f"{T} radio stations – listen live online | Faders",
          f"Listen live to the best {t} radio stations from around the world, with every song named, on iPhone, iPad and CarPlay with Faders.",
-         body, None, [("Faders", "/"), ("Genres", "/genre/"), (T, None)])
+         body, None, [("Faders", "/"), ("Genres", "/genre/"), (T, None)], og="/assets/og/genres.png")
 body = f"""<section class="sp-hero plain"><div><p class="eyebrow">Live radio</p><h1>Radio by genre</h1><p>Whatever you’re in the mood for, someone’s playing it live.</p><div class="sp-cta">{STORE}</div></div></section>
 <section><div class="sp-countries">{"".join(f'<a href="/genre/{genre_slug[g]}/"><b>{e(g.title() if g not in ("80s","90s","70s") else g)}</b><small>{len(by_genre[g])} stations</small></a>' for g in GENRES if by_genre.get(g))}</div></section>"""
 page("/genre/", "Radio by genre – listen live online | Faders",
      "Live radio by genre: pop, rock, jazz, classical, news, dance, chillout and more. Listen on iPhone, iPad, CarPlay and Apple Watch with Faders.",
-     body, None, [("Faders", "/"), ("Genres", None)])
+     body, None, [("Faders", "/"), ("Genres", None)], og="/assets/og/genres.png")
 
 # ---------- Sitemap ----------
 urls = ["/", "/updates", "/press", "/support", "/privacy", "/radio/", "/genre/", "/guides/"]
