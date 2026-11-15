@@ -351,6 +351,7 @@ async function refreshSongs() {
   const html = rows.map((r) => `<span>${esc(r.np.title)} <i>by</i> ${esc(r.np.artist || "")} · ${esc(r.m.name)}</span>`).join("");
   marquee.innerHTML = html + html;
   marquee.style.setProperty("--dur", `${Math.max(30, rows.length * 10)}s`);
+  receipt.querySelector('.wait')?.remove();
   rows.forEach((r) => {
     const key = `${r.np.title}|${r.np.artist}`; if (printed.has(key)) return; printed.add(key);
     const li = document.createElement("li");
@@ -359,7 +360,11 @@ async function refreshSongs() {
   });
   while (receipt.children.length > 6) receipt.lastElementChild.remove();
 }
-refreshSongs(); setInterval(() => { if (!document.hidden) refreshSongs(); }, 30000);
+// Until the first names arrive, the receipt says it's listening, and asks again sooner.
+receipt.innerHTML = '<li class="wait">listening to the moods…</li>';
+refreshSongs();
+let songTimer = setInterval(() => { if (!document.hidden) refreshSongs(); }, 8000);
+setTimeout(() => { clearInterval(songTimer); setInterval(() => { if (!document.hidden) refreshSongs(); }, 30000); }, 40000);
 
 // ---------- Skins ----------
 const skinPhone = $("#skinPhone"), skinImg = $("#skinImg");
