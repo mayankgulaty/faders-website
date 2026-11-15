@@ -1,0 +1,25 @@
+# Rebuilds the station, country and genre pages from radio-browser.info once a month and commits them.
+# Cloudflare publishes every push to main.
+name: Station pages
+on:
+  schedule:
+    - cron: "17 4 3 * *"   # 04:17 UTC on the 3rd of each month
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 scripts/build_pages.py
+      - name: Commit if anything changed
+        run: |
+          git config user.name "faders-pages-bot"
+          git config user.email "faders-pages-bot@users.noreply.github.com"
+          git add station radio genre sitemap.xml
+          git diff --cached --quiet || git commit -m "Station pages: monthly refresh"
+          git push

@@ -353,3 +353,53 @@ body.doc .nav { position: sticky; top: 0; left: 0; right: 0; border-radius: 0; b
 .footer-inner { max-width: 760px; margin: 0 auto; padding: 30px var(--g) 60px; font-size: 14px; }
 .footer-inner nav { display: flex; gap: 20px; margin-bottom: 10px; }
 .footer-inner a { color: var(--cream); text-decoration: none; }
+
+/* Updates and press pages */
+.release { border-top: 3px solid var(--ink); padding-top: 8px; margin-top: 40px; }
+.release h2 { margin-top: 10px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.release h2 small { font: 600 14px var(--display); letter-spacing: 0.06em; text-transform: uppercase; color: var(--pink); }
+.release li { margin: 8px 0; }
+.press-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
+.press-grid a { text-decoration: none; color: var(--ink); font: 600 14px var(--display); }
+.press-grid img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; border-radius: 16px; background: var(--ink); margin-bottom: 6px; }
+
+/* Station, country and genre pages */
+.sp .nav-links a:last-child { background: var(--lime); color: var(--ink); padding: 6px 14px; border-radius: 999px; }
+.sp-main { max-width: 1000px; margin: 0 auto; padding: 40px var(--g) 80px; }
+.sp-main section { margin-top: 44px; }
+.sp-main h2 { font-size: clamp(28px, 4vw, 40px); margin: 0 0 14px; }
+.sp-main p { max-width: 64ch; }
+.sp-main a { color: var(--violet); }
+.crumbs { font: 600 14px var(--display); opacity: 0.7; }
+.crumbs a { color: inherit; text-decoration: none; }
+.sp-hero { display: flex; gap: 24px; align-items: center; background: var(--violet); color: var(--cream); border-radius: 30px; padding: 30px; margin-top: 18px !important; box-shadow: 0 10px 0 rgba(0,0,0,0.12); }
+.sp-hero.plain { display: block; }
+.sp-hero h1 { font-size: clamp(38px, 6vw, 68px); margin: 0 0 10px; overflow-wrap: break-word; }
+.sp-hero .eyebrow { color: var(--lime); margin: 0 0 8px; }
+.sp-hero p { margin: 0 0 12px; }
+.sp-hero a { color: var(--cream); }
+.sp-logo { width: 96px; height: 96px; border-radius: 22px; background: #fff; object-fit: contain; flex: none; display: grid; place-items: center; font: 800 28px var(--display); color: var(--ink); }
+.sp-logo.ph { background: var(--pink); color: var(--cream); }
+.sp-card .sp-logo { width: 44px; height: 44px; border-radius: 11px; font-size: 15px; }
+.sp-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; }
+.sp-tags a, .sp-tags span { font: 600 13px var(--display); padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,0.12); color: var(--cream); text-decoration: none; }
+.sp-listen { background: var(--lime); border-radius: 30px; padding: 28px 30px; }
+.sp-listen h2 { margin-top: 0; }
+.sp-cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 16px; }
+.sp-play { background: var(--pink); color: var(--cream); }
+.sp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.sp-card { display: flex; gap: 12px; align-items: center; padding: 10px; border-radius: 16px; background: #fff; text-decoration: none; color: var(--ink) !important; box-shadow: 0 4px 0 rgba(0,0,0,0.08); transition: transform 0.2s var(--ease); min-width: 0; }
+.sp-card:hover { transform: translateY(-2px) rotate(-0.6deg); }
+.sp-card span { min-width: 0; display: flex; flex-direction: column; }
+.sp-card b { font: 700 15px var(--display); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sp-card small { font-size: 13px; opacity: 0.65; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sp-countries { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+.sp-countries a { display: flex; flex-direction: column; padding: 14px 16px; border-radius: 16px; background: #fff; text-decoration: none; color: var(--ink) !important; box-shadow: 0 4px 0 rgba(0,0,0,0.08); }
+.sp-countries b { font: 700 17px var(--display); }
+.sp-countries small { opacity: 0.6; }
+.sp-links { line-height: 2; }
+.sp-faq details { background: #fff; border-radius: 16px; padding: 14px 18px; margin: 10px 0; box-shadow: 0 4px 0 rgba(0,0,0,0.06); }
+.sp-faq summary { font: 700 17px var(--display); cursor: pointer; }
+.sp-faq details p { margin: 10px 0 0; }
+@media (max-width: 640px) { .sp-hero { flex-direction: column; align-items: flex-start; padding: 22px; } .sp-logo { width: 76px; height: 76px; } .sp .nav-links a:not(:last-child) { display: none; } }
+.sp-main a.store, .sp-main a.btn { color: var(--cream); }

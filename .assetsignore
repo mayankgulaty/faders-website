@@ -2,3 +2,5 @@ README.md
 .git
 .gitignore
 .assetsignore
+.github
+scripts
