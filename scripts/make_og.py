@@ -18,7 +18,7 @@ CARDS = [
     # (file, kicker, headline, italic tail, background)
     ("updates", "What’s new", "Every update,", "newest first.", "#3a128c"),
     ("press", "Press kit", "Writing about", "Faders?", "#ff3d7f"),
-    ("stations", "Live radio", "Every station,", "every country.", "#ff7a2f"),
+    ("stations", "Live radio", "50,000+ stations,", "worldwide.", "#ff7a2f"),
     ("genres", "Live radio", "Radio by", "genre.", "#3a128c"),
     ("guides", "Guides", "Radio,", "made easy.", "#ff3d7f"),
     ("guide-what-song-is-playing-on-the-radio", "Guide", "What song is playing", "on the radio?", "#ff3d7f"),

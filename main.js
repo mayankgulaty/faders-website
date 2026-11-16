@@ -480,9 +480,9 @@ const sheet = $("#sheet"), sheetMore = $("#sheetMore");
 let lastFocus = null;
 function openSheet(kind, name) {
   const T = {
-    nudge: ["Still here? 😄", "Good taste. In the app it keeps going with your phone locked, names every song, and has tens of thousands more stations."],
+    nudge: ["Still here? 😄", "Good taste. In the app it keeps going with your phone locked, names songs even when the station doesn’t, and has 50,000+ stations."],
     ended: ["That was the taster 🎧", "Keep listening in Faders. It’s free, and it’s the real thing."],
-    globe: [`Liked ${name || "that one"}?`, "Keep it in Faders, with every song named, plus tens of thousands more stations to spin through."],
+    globe: [`Liked ${name || "that one"}?`, "Keep it in Faders, with song names, plus 50,000+ stations to spin through."],
   }[kind];
   $("#sheetTitle").textContent = T[0]; $("#sheetText").textContent = T[1];
   sheetMore.hidden = !(kind === "ended" && !extended);

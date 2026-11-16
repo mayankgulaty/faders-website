@@ -175,8 +175,8 @@ def page(path, title, desc, body, jsonld=None, crumbs=None, og="/assets/og-home.
 <body class="doc sp">
 <header class="nav"><div class="nav-inner"><a class="brand" href="/"><img src="/assets/icon.png" alt="" width="30" height="30"><span>Faders</span></a><nav class="nav-links" aria-label="Pages"><a href="/radio/">Stations</a><a href="/genre/">Genres</a><a href="{APP}" rel="noopener">Get the app</a></nav></div></header>
 <main class="sp-main">{crumbs_html}{body}</main>
-<footer class="footer"><div class="footer-inner"><nav aria-label="Footer"><a href="/">Faders</a><a href="/radio/">Stations by country</a><a href="/genre/">Genres</a><a href="/guides/">Guides</a><a href="/updates">Updates</a><a href="/support">Support</a><a href="/privacy">Privacy</a></nav><p>Station information from <a href="https://www.radio-browser.info" rel="noopener">radio-browser.info</a>. Station names and logos belong to their owners; Faders plays each station’s own public stream and never alters it. © 2026 Mayank Gulaty, Ireland.</p></div></footer>
-<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden><div class="sheet-card"><button class="sheet-close" type="button" aria-label="Close" data-close>✕</button><img src="/assets/icon.png" alt="" width="68" height="68"><h3 id="sheetTitle">Keep listening in Faders</h3><p id="sheetText">That was a taste. The app is free, plays on with your phone locked and names every song.</p>{STORE}</div></div>
+<footer class="footer"><div class="footer-inner"><nav aria-label="Footer"><a href="/">Faders</a><a href="/radio/">Stations by country</a><a href="/genre/">Genres</a><a href="/guides/">Guides</a><a href="/updates">Updates</a><a href="/support">Support</a><a href="/privacy">Privacy</a></nav><p>Station information from <a href="https://www.radio-browser.info" rel="noopener">radio-browser.info</a>. Faders is independent and isn’t affiliated with or endorsed by any station listed. Station names and logos belong to their owners; Faders plays each station’s own public stream and never alters it. © 2026 Mayank Gulaty, Ireland.</p></div></footer>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden><div class="sheet-card"><button class="sheet-close" type="button" aria-label="Close" data-close>✕</button><img src="/assets/icon.png" alt="" width="68" height="68"><h3 id="sheetTitle">Keep listening in Faders</h3><p id="sheetText">That was a taste. The app is free, plays on with your phone locked and names the songs, even when the station doesn’t.</p>{STORE}</div></div>
 <script src="/assets/page.js" defer></script>
 <script src="/assets/campaign.js" defer></script>
 </body>
@@ -259,10 +259,10 @@ for uid, s in stations.items():
   <p class="sp-tags">{" ".join(f'<a href="/genre/{genre_slug[t]}/">{e(t)}</a>' if t in genre_slug else f"<span>{e(t)}</span>" for t in tags)}</p></div>
 </section>
 <section class="sp-listen">
-  <div><h2>Listen to {e(name)} live</h2><p>Play {e(name)} in Faders, the radio app for iPhone, iPad, CarPlay and Apple Watch. See every song as it plays, and when the ads start, Faders can change the channel to one of your stations playing music, then bring you back.</p>
+  <div><h2>Listen to {e(name)} live</h2><p>Play {e(name)} in Faders, the radio app for iPhone, iPad, CarPlay and Apple Watch. See the song as it plays, and when the ads start, Faders can change the channel to one of your stations playing music, then bring you back.</p>
   <div class="sp-cta">{STORE}{preview}</div></div>
 </section>
-<section><h2>About {e(name)}</h2><p>{about}</p></section>
+<section><h2>About {e(name)}</h2><p>{about}</p><p class="fine">Faders is an independent app and isn’t affiliated with or endorsed by {e(name)}. The station’s name and logo belong to its owner.</p></section>
 {f'<section><h2>More stations in {e(country_name.get(station_country.get(uid, cc), where))}</h2><div class="sp-grid">{"".join(card(u) for u in more_country)}</div><p><a href="/radio/{country_slug[station_country.get(uid, cc)]}/">All stations in {e(country_name.get(station_country.get(uid, cc)))} →</a></p></section>' if more_country else ''}
 {f'<section><h2>Similar stations</h2><div class="sp-grid">{"".join(card(u) for u in similar)}</div></section>' if similar else ''}
 <section class="sp-faq"><h2>Questions</h2>{"".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in faq)}</section>
@@ -278,7 +278,7 @@ for uid, s in stations.items():
         crumbs.append((country_name[station_country[uid]], f"/radio/{country_slug[station_country[uid]]}/"))
     crumbs.append((name, None))
     page(f"/station/{slug}/", f"{name} live – listen online | Faders",
-         f"Listen to {name} live from {where}{desc_tags}. See every song as it plays, on iPhone, iPad, CarPlay and Apple Watch with Faders.",
+         f"Listen to {name} live from {where}{desc_tags}. See the song as it plays, on iPhone, iPad, CarPlay and Apple Watch with Faders.",
          body, ld, crumbs)
 
 # ---------- Country pages ----------
@@ -289,19 +289,19 @@ for cc, ids in by_country.items():
     n, slug = country_name[cc], country_slug[cc]
     body = f"""
 <section class="sp-hero plain"><div><p class="eyebrow">Live radio</p><h1>Radio stations in {e(n)}</h1>
-<p>The most-listened stations in {e(n)}, live. Faders plays all of them, and thousands more, on iPhone, iPad, CarPlay and Apple Watch, with every song named.</p><div class="sp-cta">{STORE}</div></div></section>
+<p>The most-listened stations in {e(n)}, live. Faders plays all of them, and thousands more, on iPhone, iPad, CarPlay and Apple Watch, with song names.</p><div class="sp-cta">{STORE}</div></div></section>
 <section><h2>Popular in {e(n)}</h2><div class="sp-grid">{"".join(card(u) for u in ids)}</div></section>
 <section><h2>Other countries</h2><p class="sp-links">{" · ".join(f'<a href="/radio/{country_slug[c2]}/">{e(country_name[c2])}</a>' for c2 in list(by_country)[:40] if c2 != cc)}</p></section>
 """
     page(f"/radio/{slug}/", f"Radio stations in {n} – listen live online | Faders",
-         f"Listen live to the most popular radio stations in {n}. Every song named, on iPhone, iPad, CarPlay and Apple Watch with Faders.",
+         f"Listen live to the most popular radio stations in {n}. With song names, on iPhone, iPad, CarPlay and Apple Watch with Faders.",
          body, None, [("Faders", "/"), ("Stations", "/radio/"), (n, None)], og="/assets/og/stations.png")
 
 body = f"""<section class="sp-hero plain"><div><p class="eyebrow">Live radio</p><h1>Radio stations by country</h1>
-<p>Tens of thousands of live stations from every country. Pick one, or spin the globe in the app.</p><div class="sp-cta">{STORE}</div></div></section>
+<p>50,000+ live stations from around the world. Pick one, or spin the globe in the app.</p><div class="sp-cta">{STORE}</div></div></section>
 <section><div class="sp-countries">{"".join(f'<a href="/radio/{country_slug[cc]}/"><b>{e(country_name[cc])}</b><small>{len(by_country[cc])} popular stations</small></a>' for cc in sorted(by_country, key=lambda c: country_name[c]))}</div></section>"""
 page("/radio/", "Radio stations by country – listen live online | Faders",
-     "Live radio from every country: browse the most popular stations by country and listen on iPhone, iPad, CarPlay and Apple Watch with Faders.",
+     "Live radio from around the world: browse the most popular stations by country and listen on iPhone, iPad, CarPlay and Apple Watch with Faders.",
      body, None, [("Faders", "/"), ("Stations", None)], og="/assets/og/stations.png")
 
 # ---------- Genre pages ----------
@@ -311,11 +311,11 @@ for t, ids in by_genre.items():
         continue
     T = t.title() if t not in ("80s", "90s", "70s") else t
     body = f"""<section class="sp-hero plain"><div><p class="eyebrow">Live radio</p><h1>{e(T)} radio stations</h1>
-<p>The most-listened {e(t)} stations from around the world, live. In Faders you can play them all, see every song, and keep the music going when the ads start.</p><div class="sp-cta">{STORE}</div></div></section>
+<p>The most-listened {e(t)} stations from around the world, live. In Faders you can play them all, see what’s playing, and keep the music going when the ads start.</p><div class="sp-cta">{STORE}</div></div></section>
 <section><h2>Popular {e(t)} stations</h2><div class="sp-grid">{"".join(card(u) for u in ids)}</div></section>
 <section><h2>More genres</h2><p class="sp-links">{" · ".join(f'<a href="/genre/{genre_slug[g]}/">{e(g)}</a>' for g in GENRES if g != t)}</p></section>"""
     page(f"/genre/{genre_slug[t]}/", f"{T} radio stations – listen live online | Faders",
-         f"Listen live to the best {t} radio stations from around the world, with every song named, on iPhone, iPad and CarPlay with Faders.",
+         f"Listen live to the best {t} radio stations from around the world, with song names, on iPhone, iPad and CarPlay with Faders.",
          body, None, [("Faders", "/"), ("Genres", "/genre/"), (T, None)], og="/assets/og/genres.png")
 body = f"""<section class="sp-hero plain"><div><p class="eyebrow">Live radio</p><h1>Radio by genre</h1><p>Whatever you’re in the mood for, someone’s playing it live.</p><div class="sp-cta">{STORE}</div></div></section>
 <section><div class="sp-countries">{"".join(f'<a href="/genre/{genre_slug[g]}/"><b>{e(g.title() if g not in ("80s","90s","70s") else g)}</b><small>{len(by_genre[g])} stations</small></a>' for g in GENRES if by_genre.get(g))}</div></section>"""

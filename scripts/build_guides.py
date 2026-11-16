@@ -28,7 +28,7 @@ GUIDES = [
 <h2>3. Use Music Recognition in Control Center</h2>
 <p>On iPhone you can add Music Recognition to Control Center (Settings › Control Center) and tap it while the song plays. It works for anything you can hear, but you have to catch the song while it’s still on, and it doesn’t know which station you were listening to.</p>
 <h2>4. Let your radio app do it for you</h2>
-<p><a href="/">Faders</a> combines the first and third: it shows what the station sends, and when the station doesn’t say, it listens to the stream itself and names the song, with the title, artist, album, year and cover, as each song starts. Every song you hear is saved to your history, so you can find the one from this morning later, and with Faders Plus one tap saves it to an Apple Music playlist (and loves it on Last.fm, if you’ve connected it).</p>
+<p><a href="/">Faders</a> combines the first and third: it shows what the station sends, and when the station doesn’t say, it listens to the stream itself and names the song, with the title, artist, album, year and cover, as each song starts. Every song Faders names is saved to your history, so you can find the one from this morning later, and with Faders Plus one tap saves it to an Apple Music playlist (and loves it on Last.fm, if you’ve connected it).</p>
 <p>It even works on your favourites before you tune in: their cards show what’s on right now.</p>
 <h2>When it can’t name a song</h2>
 <p>Song recognition needs a recording it knows. DJ mixes where songs blend into each other, live sessions, and presenters talking over the intro are the hardest. If one slips through, the station’s playlist page (tip 2) is your friend.</p>
@@ -64,7 +64,7 @@ GUIDES = [
 <p><a href="/station/dublin-s-fm104/">FM104</a>, <a href="/station/dublin-s-98fm/">98FM</a>, <a href="/station/sunshine-106-8/">Sunshine 106.8</a>, <a href="/station/radio-nova-100/">Radio Nova</a> and county stations from Cork to Donegal are all online too. Browse <a href="/radio/ireland/">every popular Irish station</a>.</p>
 <h2>The easiest way: one app for all of them</h2>
 <p>Instead of a different app for every broadcaster, <a href="/">Faders</a> plays them all in one place:</p>
-<ul><li>Favourite the stations you grew up with, and see what’s on each before you tune in.</li><li>Every song named, even on stations that don’t send it.</li><li>Pause and rewind live radio with Faders Plus, handy when you’re in a different time zone and catch the end of something.</li><li>CarPlay, Apple Watch, widgets and Siri: “Play RTÉ Radio 1 on Faders”.</li></ul>
+<ul><li>Favourite the stations you grew up with, and see what’s on each before you tune in.</li><li>Song names, even on stations that don’t send them</li><li>Pause and rewind live radio with Faders Plus, handy when you’re in a different time zone and catch the end of something.</li><li>CarPlay, Apple Watch, widgets and Siri: “Play RTÉ Radio 1 on Faders”.</li></ul>
 <h2>Will everything play abroad?</h2>
 <p>The live streams do. Now and then a single programme, often sport, may not be available outside Ireland because of broadcasting rights.</p>
 <h2>Time zones</h2>
@@ -135,7 +135,7 @@ GUIDES = [
 <p>Many pop and adult-contemporary stations switch to all-Christmas playlists in December. Check your favourites: in Faders their cards show what’s playing before you tune in.</p>
 <h2>The easy way: a Christmas shelf in Faders</h2>
 <p>From <b>20 November to 6 January</b>, <a href="/">Faders</a> adds a <b>Christmas</b> shelf to the Listen tab, with stations from your own country first. There’s gentle snow at the top of the screen, and a festive app icon if you’d like one. No update needed: it turns up by itself.</p>
-<ul><li>Every song named, even on stations that don’t send it</li><li>In CarPlay for the drive home</li><li>On Apple Watch with Bluetooth headphones</li><li>A sleep timer for falling asleep to carols</li></ul>
+<ul><li>Song names, even on stations that don’t send them</li><li>In CarPlay for the drive home</li><li>On Apple Watch with Bluetooth headphones</li><li>A sleep timer for falling asleep to carols</li></ul>
 <h2>On a speaker</h2>
 <p>Use AirPlay to send any station from Faders to a HomePod, an AirPlay speaker or your TV, or connect any Bluetooth speaker.</p>
 """,
@@ -186,14 +186,14 @@ GUIDES = [
 <h2>At a glance</h2>
 <table class="data"><thead><tr><th></th><th>TuneIn</th><th>Faders</th></tr></thead><tbody>
 <tr><td>Price</td><td>Free, with a Premium subscription</td><td>Free, with an optional one-time Plus purchase</td></tr>
-<tr><td>Live radio stations</td><td>100,000+</td><td>Tens of thousands, from every country</td></tr>
+<tr><td>Live radio stations</td><td>100,000+</td><td>Tens of thousands, from around the world</td></tr>
 <tr><td>Song names</td><td>Shows the station’s song info</td><td>Shows the station’s, and names the song itself when it’s missing</td></tr>
 <tr><td>Ad breaks</td><td>Premium offers commercial-free stations</td><td>Changes the channel to another of your stations, free</td></tr>
 <tr><td>CarPlay and Apple Watch</td><td>Yes</td><td>Yes, plus Car Mode for cars without CarPlay</td></tr>
 <tr><td>Podcasts, audiobooks, live sports</td><td>Yes (sports and audiobooks with Premium)</td><td>No</td></tr>
 </tbody></table>
 <h2>Where Faders is different</h2>
-<ul><li><b>No subscription.</b> Listening is free. Faders Plus is a single purchase, shared with your family, for extras like pause and rewind, skins and alarms.</li><li><b>Every song named.</b> When a station doesn’t say what’s playing, Faders listens and identifies it, with the album, year and cover.</li><li><b>Changing the channel during breaks.</b> Faders can move you to one of your stations playing a song while yours is on an ad break, and bring you back after. It never alters any station’s stream.</li><li><b>Private by design.</b> No account and no tracking: the App Store privacy label says “Data Not Collected”.</li><li><b>Ad-free moods</b> from listener-supported stations, for focus, sleep and more.</li></ul>
+<ul><li><b>No subscription.</b> Listening is free. Faders Plus is a single purchase, shared with your family, for extras like pause and rewind, skins and alarms.</li><li><b>Song names, even when the station is silent.</b> When a station doesn’t say what’s playing, Faders listens and identifies it, with the album, year and cover.</li><li><b>Changing the channel during breaks.</b> Faders can move you to one of your stations playing a song while yours is on an ad break, and bring you back after. It never alters any station’s stream.</li><li><b>Private by design.</b> No account and no tracking: the App Store privacy label says “Data Not Collected”.</li><li><b>Ad-free moods</b> from listener-supported stations, for focus, sleep and more.</li></ul>
 <h2>When TuneIn is the better pick</h2>
 <p>If you want podcasts, audiobooks or US live sports coverage in the same app as your radio, TuneIn does all of that and Faders doesn’t. Faders is for people who want live radio, done really well.</p>
 <p class="fine">Compared using each app’s App Store listing in November 2026. Features and prices change; check the App Store for the latest.</p>
@@ -208,7 +208,7 @@ GUIDES = [
 <h2>What Radio Garden does well</h2>
 <ul><li>The globe is a joy for discovering stations by place.</li><li>It’s free, with visual ads; a Premium purchase removes them and adds a sleep timer.</li><li>Favourites sync with iCloud, and the Lock Screen shows the song when the station sends it.</li></ul>
 <h2>What Faders adds</h2>
-<ul><li><b>A World Map too,</b> plus search by name or frequency, genres in the languages you speak, and a country’s stations sorted by what’s popular.</li><li><b>Every song named,</b> even when the station doesn’t send it, with album, year and cover, and a history of everything you heard.</li><li><b>Changing the channel during ad breaks</b> to another of your stations playing music, then back. It never alters any stream.</li><li><b>Ad-free moods,</b> CarPlay, Car Mode, Apple Watch, widgets, Siri and a sleep timer, free.</li><li><b>No ads of ours and no tracking.</b> The App Store privacy label is “Data Not Collected”.</li></ul>
+<ul><li><b>A World Map too,</b> plus search by name or frequency, genres in the languages you speak, and a country’s stations sorted by what’s popular.</li><li><b>Song names</b> even when the station doesn’t send it, with album, year and cover, and a history of everything you heard.</li><li><b>Changing the channel during ad breaks</b> to another of your stations playing music, then back. It never alters any stream.</li><li><b>Ad-free moods,</b> CarPlay, Car Mode, Apple Watch, widgets, Siri and a sleep timer, free.</li><li><b>No ads of ours and no tracking.</b> The App Store privacy label is “Data Not Collected”.</li></ul>
 <h2>Use both</h2>
 <p>They’re not either/or. Many people use the globe to discover a station, then add it to an everyday app for the car and the kitchen. In Faders you can also <a href="/">spin our globe on the website</a> and land somewhere random.</p>
 <p>Browse <a href="/radio/">stations by country</a> or <a href="/genre/">by genre</a> to find your next favourite.</p>
