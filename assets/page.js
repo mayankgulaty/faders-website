@@ -16,7 +16,7 @@
       clearInterval(timer);
       timer = setInterval(() => {
         left--; b.textContent = `■ Stop · ${left}s`;
-        if (left <= 0) { clearInterval(timer); audio.pause(); audio = null; b.textContent = "▶ Listen for a minute"; open(`Keep listening to ${b.dataset.name}`, "In Faders it plays on with your phone locked, in CarPlay and on your Watch, with every song named. Free on the App Store."); }
+        if (left <= 0) { clearInterval(timer); audio.pause(); audio = null; b.textContent = "▶ Listen for a minute"; open(`Keep listening to ${b.dataset.name}`, "In Faders it plays on with your phone locked, in CarPlay and on your Watch, with song names. Free on the App Store."); }
       }, 1000);
     });
     audio.addEventListener("error", () => { b.textContent = "This one plays in the app"; audio = null; open(`${b.dataset.name} plays in Faders`, "This station’s stream doesn’t play in a web browser, but it does in Faders. Free on the App Store."); });
