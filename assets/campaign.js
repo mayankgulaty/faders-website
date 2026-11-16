@@ -2,7 +2,7 @@
 // Apple counts these without cookies or anything personal: just "a download came from campaign X".
 "use strict";
 (() => {
-  const PT = "";   // App Store Connect provider token (App Analytics › Campaigns › Generate link); campaigns need it
+  const PT = "128269939";   // App Store Connect provider token (App Analytics › Campaigns); campaigns need it
   const path = location.pathname;
   const kind = path === "/" || path === "/index.html" ? "home" : (path.split("/")[1] || "page").replace(".html", "");
   const tag = (a) => {
