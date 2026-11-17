@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["Y28C3CV4H8.com.mayankgulaty.radio"],
+        "components": [
+          { "/": "/station/*", "?": { "id": "?*" }, "comment": "Open in Faders on a station page: plays that station in the app" }
+        ]
+      }
+    ]
+  }
+}
