@@ -504,10 +504,10 @@ function onScroll() {
 onScroll(); addEventListener("scroll", onScroll, { passive: true });
 
 const rv = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); rv.unobserve(e.target); } }), { threshold: 0.12 });
-$$(".block h2, .block .lede, .card, .ticket, .receipt, .globe-card, .timeline, .chips li, .ipad, .duo").forEach((el, i) => { el.classList.add("rv"); el.style.setProperty("--r", `${(i % 2 ? 1 : -1) * 2}deg`); el.style.transitionDelay = el.matches(".card, .chips li") ? `${(i % 6) * 60}ms` : "0ms"; rv.observe(el); });
+$$(".block h2, .block .lede, .card, .ticket, .receipt, .globe-card, .timeline, .chips li, .ipad, .duo, .tvset").forEach((el, i) => { el.classList.add("rv"); el.style.setProperty("--r", `${(i % 2 ? 1 : -1) * 2}deg`); el.style.transitionDelay = el.matches(".card, .chips li") ? `${(i % 6) * 60}ms` : "0ms"; rv.observe(el); });
 
-const film = $(".duo video");
-new IntersectionObserver(([e]) => { if (e.isIntersecting && !reduceMotion) film.play().catch(() => {}); else film.pause(); }, { threshold: 0.3 }).observe(film);
+// The Duo film and the Apple TV teaser play while on screen (not with Reduce Motion).
+$$(".duo video, .tvscreen video").forEach((film) => new IntersectionObserver(([e]) => { if (e.isIntersecting && !reduceMotion) film.play().catch(() => {}); else film.pause(); }, { threshold: 0.3 }).observe(film));
 if (new Date() >= PLUS_PRICE_RISES) { $("#plusPrice").textContent = "€9.99"; $("#plusNote").textContent = "One payment. No subscription, ever."; }
 
 buildScale();
