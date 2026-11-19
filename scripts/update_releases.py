@@ -9,6 +9,7 @@ import html
 import json
 import re
 import sys
+import time
 import urllib.request
 
 APP_ID = "6825091695"
@@ -43,8 +44,20 @@ def bullets(notes: str) -> list[str]:
 
 
 def main() -> int:
-    with urllib.request.urlopen(f"https://itunes.apple.com/lookup?id={APP_ID}&country=gb", timeout=20) as response:
-        result = json.load(response)["results"][0]
+    request = urllib.request.Request(f"https://itunes.apple.com/lookup?id={APP_ID}&country=gb",
+                                     headers={"User-Agent": "Mozilla/5.0 (faders.app updates page)", "Accept": "application/json"})
+    result = None
+    for attempt in range(4):
+        try:
+            with urllib.request.urlopen(request, timeout=20) as response:
+                result = json.load(response)["results"][0]
+            break
+        except Exception as error:  # Apple sometimes turns away cloud runners: try again shortly
+            print(f"lookup failed ({error}); retrying")
+            time.sleep(20 * (attempt + 1))
+    if result is None:
+        print("lookup unavailable; nothing changed")
+        return 0
     version, notes = result["version"], result.get("releaseNotes", "")
     released = datetime.datetime.fromisoformat(result["currentVersionReleaseDate"].replace("Z", "+00:00")).date()
     anchor = "v" + version.replace(".", "-")
