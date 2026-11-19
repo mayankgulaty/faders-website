@@ -393,6 +393,7 @@ body.doc .nav { position: sticky; top: 0; left: 0; right: 0; border-radius: 0; b
 .sp-tags a, .sp-tags span { font: 600 13px var(--display); padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,0.12); color: var(--cream); text-decoration: none; }
 .sp-listen { background: var(--lime); border-radius: 30px; padding: 28px 30px; }
 .sp-listen h2 { margin-top: 0; }
+.sp-handoff { margin: 16px 0 0; font-weight: 600; }
 .sp-cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 16px; }
 .sp-play { background: var(--pink); color: var(--cream); }
 .sp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
