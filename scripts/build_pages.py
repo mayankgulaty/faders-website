@@ -137,7 +137,7 @@ STORE_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2
 STORE = f'<a class="store" href="{APP}" rel="noopener">{STORE_SVG}<span><small>Download on the</small>App Store</span></a>'
 
 
-def page(path, title, desc, body, jsonld=None, crumbs=None, og="/assets/og-home.png"):
+def page(path, title, desc, body, jsonld=None, crumbs=None, og="/assets/og-home.png", app_arg=None):
     crumbs_html = ""
     if crumbs:
         crumbs_html = '<nav class="crumbs" aria-label="Breadcrumb">' + " / ".join(
@@ -154,7 +154,7 @@ def page(path, title, desc, body, jsonld=None, crumbs=None, og="/assets/og-home.
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
 <meta name="theme-color" content="#3a128c">
-<meta name="apple-itunes-app" content="app-id=6825091695">
+<meta name="apple-itunes-app" content="app-id=6825091695{(", app-argument=" + e(app_arg)) if app_arg else ""}">
 <link rel="canonical" href="{SITE}{path}">
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
@@ -245,10 +245,13 @@ for uid, s in stations.items():
     for t in station_genres.get(uid, []) + [t for t in tags if t in by_genre]:
         similar += [u for u in by_genre.get(t, []) if u != uid and u not in similar and u not in more_country]
     similar = similar[:8]
+    # Opens the app on this station (a universal link: open.faders.app, so iOS hands it to Faders;
+    # without the app it's this same page there, canonical to faders.app). Needs Faders 1.6.
+    open_app = f'<a class="btn sp-open" href="https://open.faders.app/station/{slug}/?id={e(uid)}">Open in Faders</a>'
     preview = (f'<button class="btn sp-play" type="button" data-stream="{e(stream)}" data-name="{e(name)}">▶ Listen for a minute</button>'
                if stream.startswith("https://") else "")
     faq = [
-        (f"How can I listen to {name} on iPhone?", f"Download Faders, free on the App Store, search for {name} and tap it. Add it to your favourites to see what’s on before you tune in."),
+        (f"How can I listen to {name} on iPhone?", f"Download Faders, free on the App Store, search for {name} and tap it. Already have Faders? Tap Open in Faders on this page and {name} starts playing. Add it to your favourites to see what’s on before you tune in."),
         (f"Can I listen to {name} in CarPlay?", f"Yes. In Faders, {name} plays in CarPlay, on Apple Watch, and in Car Mode for cars without CarPlay."),
         (f"What song is playing on {name}?", f"Faders shows the song, artist and cover as each song starts. When {name} doesn’t send it, Faders listens and names the song itself."),
     ]
@@ -260,7 +263,7 @@ for uid, s in stations.items():
 </section>
 <section class="sp-listen">
   <div><h2>Listen to {e(name)} live</h2><p>Play {e(name)} in Faders, the radio app for iPhone, iPad, CarPlay and Apple Watch. See the song as it plays, and when the ads start, Faders can change the channel to one of your stations playing music, then bring you back.</p>
-  <div class="sp-cta">{STORE}{preview}</div></div>
+  <div class="sp-cta">{STORE}{open_app}{preview}</div></div>
 </section>
 <section><h2>About {e(name)}</h2><p>{about}</p><p class="fine">Faders is an independent app and isn’t affiliated with or endorsed by {e(name)}. The station’s name and logo belong to its owner.</p></section>
 {f'<section><h2>More stations in {e(country_name.get(station_country.get(uid, cc), where))}</h2><div class="sp-grid">{"".join(card(u) for u in more_country)}</div><p><a href="/radio/{country_slug[station_country.get(uid, cc)]}/">All stations in {e(country_name.get(station_country.get(uid, cc)))} →</a></p></section>' if more_country else ''}
@@ -279,7 +282,7 @@ for uid, s in stations.items():
     crumbs.append((name, None))
     page(f"/station/{slug}/", f"{name} live – listen online | Faders",
          f"Listen to {name} live from {where}{desc_tags}. See the song as it plays, on iPhone, iPad, CarPlay and Apple Watch with Faders.",
-         body, ld, crumbs)
+         body, ld, crumbs, app_arg=f"faders://station/{uid}")
 
 # ---------- Country pages ----------
 shutil.rmtree("radio", ignore_errors=True)
