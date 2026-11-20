@@ -242,6 +242,10 @@ h2 em, h1 em { font-family: var(--serif); font-style: italic; font-weight: 400; 
 .duo { margin: 0; transform: rotate(2deg); }
 .duo video { width: 100%; border-radius: 24px; }
 .duo figcaption { font: 600 15px var(--display); opacity: 0.7; margin-top: 12px; }
+.tvset { margin: 46px auto 22px; max-width: 980px; }
+.tvscreen { padding: 14px; border-radius: 26px; background: #0b0b10; box-shadow: 0 40px 80px -30px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.06); }
+.tvscreen video { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; background: #000; }
+.tvstand { display: block; width: 22%; height: 14px; margin: 0 auto; border-radius: 0 0 10px 10px; background: #0b0b10; opacity: 0.9; }
 
 /* Tickets */
 .tickets { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 46px; }
