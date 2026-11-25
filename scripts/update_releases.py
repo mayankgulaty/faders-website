@@ -16,7 +16,7 @@ APP_ID = "6825091695"
 PAGE = "updates.html"
 # Names that keep their own capitals when a title is put in sentence case.
 NAMES = ["AirPlay", "CarPlay", "iPhone", "iPad", "Apple Music", "Apple TV", "Apple Watch", "Faders Plus", "Faders",
-         "Lock Screen", "Dynamic Island", "Siri", "Shortcuts", "Jellyfin", "Plex", "Last.fm", "Duo", "Hi-Fi", "FLAC",
+         "Faders Picks", "Lock Screen", "Dynamic Island", "Siri", "Shortcuts", "Jellyfin", "Plex", "Last.fm", "Duo", "Hi-Fi", "FLAC",
          "Opus", "Shazam", "Spotify", "Insights", "Christmas", "CarPlay"]
 
 
